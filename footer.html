@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap');
+
+    :root {
+      --forest: #173d2b;
+      --forest-dark: #102c1f;
+      --cream: #f4f0e8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      background: transparent;
+    }
+
+    body {
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      width: 100%;
+      color: var(--cream);
+      background:
+        linear-gradient(rgba(10,31,21,0.76), rgba(10,31,21,0.88)),
+        url('https://raw.githubusercontent.com/cornellsnrc/snrc-image-src/main/SNRC-Website-Banner.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .footer-top {
+      width: 100%;
+      min-height: 145px;
+      padding: 25px clamp(20px, 5vw, 70px);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .footer-message {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .footer-title {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--cream);
+    }
+
+    .footer-subtitle {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(244,240,232,0.82);
+    }
+
+    /* JOIN */
+    .footer-join-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .footer-join {
+      min-width: 175px;
+      padding: 11px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #f1ede5;
+      color: var(--forest-dark);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-join:hover {
+      background: white;
+      transform: translateY(-1px);
+    }
+
+    .footer-join-arrow {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    /* BOTTOM */
+    .footer-bottom {
+      width: 100%;
+      padding: 18px clamp(20px, 5vw, 70px);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    /* LINKS */
+    .footer-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-link-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-link {
+      position: relative;
+      padding: 4px 0;
+      color: rgba(244,240,232,0.88);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: white;
+    }
+
+    .footer-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: white;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+
+    .footer-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* INFO */
+    .footer-info {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      text-align: right;
+    }
+
+    .footer-statement {
+      font-size: 10px;
+      color: rgba(244,240,232,0.65);
+    }
+
+    .footer-policy-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-policy {
+      color: rgba(244,240,232,0.72);
+      text-decoration: none;
+      font-size: 10px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-policy:hover {
+      color: white;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      .footer-top {
+        gap: 25px;
+      }
+
+      .footer-bottom {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .footer-info {
+        justify-content: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 24px 16px;
+      }
+
+      .footer-join-wrapper {
+        justify-content: flex-start;
+      }
+
+      .footer-join {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        padding: 16px;
+      }
+
+      .footer-links {
+        gap: 12px 16px;
+      }
+
+      .footer-title {
+        font-size: 26px;
+      }
+
+      .footer-subtitle {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-footer">
+
+    <div class="footer-top">
+
+      <div class="footer-message">
+        <div class="footer-title">Be part of something bigger.</div>
+        <div class="footer-subtitle">
+          Join a community that values the outdoors, takes action, and makes a difference.
+        </div>
+      </div>
+
+      <div class="footer-join-wrapper">
+        <a class="footer-join"
+          href="https://cornell.campusgroups.com/feeds?type=club&type_id=27492&tab=about"
+          target="_blank">
+          <div class="footer-join-text">Join SNRC</div>
+          <div class="footer-join-arrow">→</div>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <div class="footer-links">
+
+        <div class="footer-link-wrapper">
+          <a class="footer-link"
+            href="https://www.instagram.com/cornell_snrc/"
+            target="_blank">Instagram</a>
+        </div>
+
+        <div class="footer-link-wrapper">
+          <a class="footer-link"
+            href="https://groupme.com/join_group/109649240/gyEfbaTN"
+            target="_blank">GroupMe</a>
+        </div>
+
+        <div class="footer-link-wrapper">
+          <a class="footer-link"
+            href="https://calendar.google.com/calendar/u/0?cid=Y29ybmVsbHNucmNAZ21haWwuY29t"
+            target="_blank">Calendar</a>
+        </div>
+
+        <div class="footer-link-wrapper">
+          <a class="footer-link"
+            href="https://cornell.campusgroups.com/feeds?type=club&type_id=27492&tab=about"
+            target="_blank">CampusGroups</a>
+        </div>
+
+        <div class="footer-link-wrapper">
+          <a class="footer-link"
+            href="mailto:cornellsnrc@gmail.com">Gmail</a>
+        </div>
+
+      </div>
+
+      <div class="footer-info">
+
+        <div class="footer-statement">
+          This organization is a registered student organization of Cornell University.
+        </div>
+
+        <div class="footer-policy-wrapper">
+          <a class="footer-policy"
+            href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment"
+            target="_blank">
+            Equal Education and Employment
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
