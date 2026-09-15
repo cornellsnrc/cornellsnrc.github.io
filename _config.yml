@@ -3,7 +3,7 @@ short_title: Cornell SNRC
 description: Cornell students connecting conservation, outdoor exploration, environmental technology, and natural-resource education.
 url: https://mn579.github.io
 baseurl: /snrc-website
-lang: en_US
+lang: en-US
 timezone: America/New_York
 
 permalink: pretty
@@ -17,6 +17,8 @@ exclude:
   - Gemfile.lock
   - HOW_TO_UPDATE_THE_WEBSITE.md
   - README.md
+  - assets/images/gallery/README.md
+  - assets/images/officers/README.md
   - vendor
 
 defaults:
