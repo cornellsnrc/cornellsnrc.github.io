@@ -1,0 +1,14 @@
+# EDIT THIS FILE to add, remove, or reorder officer cards.
+# Put headshots in assets/images/officers/ and use a path like the example below.
+- name: Michael Neiss
+  role: Treasurer
+  image: ""
+  bio: Electrical and computer engineering student interested in conservation technology and practical environmental problem-solving.
+  email: cornellsnrc@gmail.com
+
+# Copy this block, remove the leading # marks, and replace the values:
+# - name: Full Name
+#   role: Position
+#   image: /assets/images/officers/first-last.jpg
+#   bio: One or two concise sentences about the officer.
+#   email: optional-email@cornell.edu

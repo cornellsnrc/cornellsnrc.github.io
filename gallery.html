@@ -1,0 +1,42 @@
+---
+title: Gallery
+page_id: gallery
+description: Photos from Cornell SNRC hikes, workshops, meetings, and conservation activities.
+permalink: /gallery/
+---
+
+<section class="page-hero content-width reveal">
+  <p class="eyebrow">Gallery</p>
+  <h1>From the field, the trail, and around campus.</h1>
+  <p>Photos from SNRC gatherings and the places we explore together.</p>
+</section>
+
+<section class="section content-width">
+  {% assign image_count = 0 %}
+  <div class="gallery-grid" data-gallery>
+    {% for file in site.static_files %}
+      {% if file.path contains '/assets/images/gallery/' %}
+        {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.webp' or file.extname == '.avif' %}
+          {% assign image_count = image_count | plus: 1 %}
+          {% assign raw_name = file.basename | replace: '-', ' ' | replace: '_', ' ' %}
+          <button class="gallery-item reveal" type="button" data-gallery-item data-src="{{ file.path | relative_url }}" data-alt="{{ raw_name | capitalize }}">
+            <img src="{{ file.path | relative_url }}" alt="{{ raw_name | capitalize }}" loading="lazy">
+            <span>View photo</span>
+          </button>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% if image_count == 0 %}
+    <div class="empty-state reveal">
+      <p class="eyebrow">A new collection</p>
+      <h2>Photos will appear here soon.</h2>
+      <p>Once photos are uploaded to the gallery folder, this page displays them automatically.</p>
+    </div>
+  {% endif %}
+</section>
+
+<dialog class="lightbox" data-lightbox>
+  <button type="button" class="lightbox-close" aria-label="Close image" data-lightbox-close>×</button>
+  <img src="" alt="" data-lightbox-image>
+</dialog>

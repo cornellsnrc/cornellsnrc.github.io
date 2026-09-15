@@ -1,0 +1,20 @@
+# EDIT THIS FILE to update events. Use status: upcoming or status: past.
+# Dates should use YYYY-MM-DD so events sort correctly.
+- title: Fall Picnic & Welcome
+  date: 2026-09-10
+  time: 5:00–6:30 p.m.
+  location: Cornell Botanic Gardens
+  status: past
+  description: Our first gathering of the 2026–27 year—an easy walk, club introduction, picnic, and time to meet other students interested in conservation.
+  link: ""
+  image: ""
+
+# Copy this block and replace the values to add an event:
+# - title: Event Name
+#   date: 2026-10-01
+#   time: 5:00–6:00 p.m.
+#   location: Location
+#   status: upcoming
+#   description: A short, useful description.
+#   link: https://cornell.campusgroups.com/...
+#   image: /assets/images/gallery/event-folder/photo.jpg

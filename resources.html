@@ -1,0 +1,28 @@
+---
+title: Resources
+page_id: resources
+description: SNRC member links and Cornell conservation resources.
+permalink: /resources/
+---
+
+<section class="page-hero content-width reveal">
+  <p class="eyebrow">Resources</p>
+  <h1>Useful links, all in one place.</h1>
+  <p>Connect with SNRC, keep up with events, and find places to keep learning.</p>
+</section>
+
+<section class="section content-width resource-sections">
+  {% for group in site.data.resources %}
+    <div class="resource-group reveal">
+      <h2>{{ group.category }}</h2>
+      <div class="resource-list">
+        {% for item in group.items %}
+          <a class="resource-card" href="{{ item.url }}" target="_blank" rel="noopener">
+            <span><strong>{{ item.title }}</strong><small>{{ item.description }}</small></span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</section>

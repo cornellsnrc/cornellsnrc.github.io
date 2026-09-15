@@ -1,0 +1,27 @@
+title: Society for Natural Resources Conservation
+short_title: Cornell SNRC
+description: Cornell students connecting conservation, outdoor exploration, environmental technology, and natural-resource education.
+url: https://mn579.github.io
+baseurl: /snrc-website
+lang: en_US
+timezone: America/New_York
+
+permalink: pretty
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - HOW_TO_UPDATE_THE_WEBSITE.md
+  - README.md
+  - vendor
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /assets/images/brand/forest-banner.png

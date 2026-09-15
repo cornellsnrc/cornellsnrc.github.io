@@ -1,0 +1,20 @@
+# EDIT THIS FILE to add useful links for members.
+- category: Get Connected
+  items:
+    - title: CampusGroups
+      description: Join the official roster and find event details.
+      url: https://cornell.campusgroups.com/feeds?type=club&type_id=27492&tab=about
+    - title: GroupMe
+      description: Receive quick updates and talk with other members.
+      url: https://groupme.com/join_group/109649240/gyEfbaTN
+    - title: SNRC Calendar
+      description: Add upcoming meetings and events to your calendar.
+      url: https://calendar.google.com/calendar/u/0?cid=Y29ybmVsbHNucmNAZ21haWwuY29t
+- category: Cornell & Conservation
+  items:
+    - title: Cornell Botanic Gardens
+      description: Explore gardens, natural areas, trails, and public programs.
+      url: https://cornellbotanicgardens.org/
+    - title: Cornell CALS Natural Resources and the Environment
+      description: Learn about Cornell programs focused on environmental systems and stewardship.
+      url: https://cals.cornell.edu/natural-resources-environment
