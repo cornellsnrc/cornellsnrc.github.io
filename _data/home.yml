@@ -1,0 +1,19 @@
+# EDIT THIS FILE to choose the overlapping photos on the home page.
+# Keep four entries and use images already stored in assets/images/gallery/.
+join_photos:
+  - image: /assets/images/gallery/gorge-cleanup-group.jpg
+    alt: SNRC members holding litter grabbers and bags after a gorge cleanup
+    caption: Gorge cleanup crew
+    position: back
+  - image: /assets/images/gallery/terracycle-bin-painting.jpg
+    alt: SNRC member beside a hand-painted TerraCycle collection bin
+    caption: TerraCycle in action
+    position: right
+  - image: /assets/images/gallery/tcamp-sign-painting.jpg
+    alt: Hand-painted caution salamander crossing sign made for TCAMP
+    caption: TCAMP partnership
+    position: left
+  - image: /assets/images/gallery/gorge-cleanup1.jpg
+    alt: SNRC members carrying bags and cleanup supplies near a Cornell gorge
+    caption: Fieldwork together
+    position: front

@@ -154,7 +154,7 @@ p { text-wrap: pretty; }
 /* Homepage */
 .home-hero {
   position: relative;
-  min-height: clamp(420px, 56svh, 520px);
+  min-height: clamp(210px, 26svh, 265px);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -170,9 +170,8 @@ p { text-wrap: pretty; }
   height: 84px;
   background: linear-gradient(to top, rgba(5, 25, 17, 0.45), transparent);
 }
-.hero-copy { position: relative; z-index: 2; padding-block: 42px; }
-.hero-copy h1 { max-width: 690px; margin-bottom: 16px; color: var(--white); font-size: clamp(2.75rem, 4.5vw, 4.55rem); letter-spacing: -0.04em; line-height: 0.94; }
-.hero-intro { max-width: 560px; margin-bottom: 20px; color: rgba(255, 255, 255, 0.84); font-size: clamp(0.96rem, 1.15vw, 1.05rem); }
+.hero-copy { position: relative; z-index: 2; padding-block: 30px; }
+.hero-intro { max-width: 640px; margin-bottom: 18px; color: rgba(255, 255, 255, 0.9); font-family: var(--serif); font-size: clamp(1.15rem, 1.7vw, 1.55rem); line-height: 1.3; }
 .hero-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 .hero-mark {
   position: absolute;
@@ -189,7 +188,7 @@ p { text-wrap: pretty; }
 }
 .section-label { margin-bottom: 20px; border-top: 1px solid var(--line); }
 .section-label span { display: inline-block; padding-top: 10px; color: var(--forest-700); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-.intro-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr); gap: clamp(36px, 5vw, 72px); align-items: start; }
+.intro-grid { display: grid; grid-template-columns: minmax(300px, 0.72fr) minmax(420px, 1.28fr); gap: clamp(24px, 3vw, 42px); align-items: start; }
 .display-heading { margin: 0; font-size: clamp(2rem, 3.25vw, 3.35rem); }
 .body-copy p { font-size: 1rem; }
 .body-copy .text-link { margin-top: 8px; display: inline-block; }
@@ -201,14 +200,20 @@ p { text-wrap: pretty; }
 .section-heading-row > p { margin-bottom: 6px; }
 .program-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255, 255, 255, 0.18); border-left: 1px solid rgba(255, 255, 255, 0.18); }
 .program-card { min-height: 270px; padding: 20px; border-right: 1px solid rgba(255, 255, 255, 0.18); border-bottom: 1px solid rgba(255, 255, 255, 0.18); }
-.program-number { display: block; margin-bottom: 22px; color: #afc491; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; }
+.program-season { display: block; margin-bottom: 22px; color: #afc491; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 .program-card h3 { margin-bottom: 12px; }
 .program-card > p { font-size: 0.88rem; }
 .program-card ul { margin: 14px 0 0; padding: 10px 0 0; border-top: 1px solid rgba(255, 255, 255, 0.14); list-style: none; }
 .program-card li { padding-block: 2px; color: rgba(255, 255, 255, 0.52); font-size: 0.75rem; }
 .split-feature { display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: 300px; background: #e6e9de; }
-.feature-art { min-height: 300px; padding: 34px; display: flex; align-items: center; background: var(--cream); }
-.feature-art img { width: 100%; }
+.feature-collage { position: relative; min-height: 350px; overflow: hidden; isolation: isolate; background: var(--cream); }
+.collage-card { position: absolute; margin: 0; padding: 6px 6px 25px; background: var(--white); box-shadow: 0 12px 28px rgba(9, 40, 28, 0.2); }
+.collage-card img { width: 100%; height: 100%; object-fit: cover; }
+.collage-card figcaption { position: absolute; right: 7px; bottom: 5px; left: 7px; overflow: hidden; color: var(--forest-900); font-size: 0.65rem; font-weight: 700; line-height: 1.15; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.collage-card-back { z-index: 1; top: 10%; left: 5%; width: 57%; height: 59%; transform: rotate(-2deg); }
+.collage-card-right { z-index: 2; top: 5%; right: 6%; width: 34%; height: 59%; transform: rotate(3deg); }
+.collage-card-left { z-index: 3; bottom: 4%; left: 11%; width: 31%; height: 54%; transform: rotate(-4deg); }
+.collage-card-front { z-index: 4; right: 9%; bottom: 2%; width: 47%; height: 53%; transform: rotate(2deg); }
 .feature-copy { padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; }
 .feature-copy h2 { font-size: clamp(1.8rem, 2.6vw, 2.65rem); }
 .stacked-links { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 18px; }
@@ -380,12 +385,11 @@ p { text-wrap: pretty; }
   .site-nav > a:not(.button) { padding: 12px 0; border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 1.5rem; font-weight: 600; }
   .site-nav > a:not(.button)::after { display: none; }
   .nav-join { margin-top: 28px; width: 100%; }
-  .home-hero { min-height: 460px; }
-  .hero-copy h1 { font-size: clamp(2.8rem, 9vw, 4.2rem); }
+  .home-hero { min-height: 250px; }
   .intro-grid, .section-heading-row, .split-feature, .resource-group, .collaboration-callout, .archive-heading, .archive-callout { grid-template-columns: 1fr; }
   .intro-grid, .section-heading-row { gap: 28px; }
   .split-feature { min-height: 0; }
-  .feature-art { min-height: 240px; }
+  .feature-collage { min-height: 320px; }
   .feature-copy { padding: 30px; }
   .values-grid { grid-template-columns: 1fr; }
   .value-card { min-height: 165px; }
@@ -402,16 +406,15 @@ p { text-wrap: pretty; }
 
 @media (max-width: 560px) {
   .section { padding-block: 40px; }
-  .home-hero { min-height: 430px; background-position: 58% center; }
-  .hero-copy { padding-block: 38px; }
-  .hero-copy h1 { font-size: clamp(2.65rem, 12vw, 3.7rem); }
-  .hero-intro { font-size: 1rem; }
+  .home-hero { min-height: 270px; background-position: 58% center; }
+  .hero-copy { padding-block: 28px; }
+  .hero-intro { font-size: 1.12rem; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
   .page-hero { padding-top: 42px; padding-bottom: 30px; }
   .page-hero h1 { font-size: clamp(2.25rem, 10vw, 3.2rem); }
   .program-grid { grid-template-columns: 1fr; }
   .program-card { min-height: 240px; }
-  .feature-art { min-height: 190px; padding: 24px; }
+  .feature-collage { min-height: 290px; }
   .feature-copy { padding: 26px 22px; }
   .officer-grid, .gallery-grid { grid-template-columns: 1fr; }
   .event-card { grid-template-columns: 82px 1fr; gap: 22px; }

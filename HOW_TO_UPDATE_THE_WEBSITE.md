@@ -12,6 +12,7 @@ You can make every common update from GitHub's website. Open the file, click the
 | Upcoming and past events | `_data/events.yml` |
 | Historical initiatives and memorable events | `_data/archive.yml` |
 | Program areas on the home page | `_data/programs.yml` |
+| Overlapping home-page photos | `_data/home.yml` |
 | Resource links | `_data/resources.yml` |
 | Officer photos | `assets/images/officers/` |
 | Gallery photos | `assets/images/gallery/` |
@@ -62,6 +63,8 @@ Leave `link: ""` blank if there is no registration or information page.
 3. Upload the photos and commit them.
 
 No gallery list needs to be edited. The Gallery page finds supported image files automatically. Descriptive filenames create better image descriptions for accessibility.
+
+To feature a gallery image in the overlapping home-page collage, open `_data/home.yml` and replace an existing `image`, `alt`, and `caption`. Keep the four `position` values—`back`, `right`, `left`, and `front`—so the photos retain their layered arrangement.
 
 ## Add something to the SNRC Archive
 

@@ -7,7 +7,6 @@ description: Cornell SNRC creates tangible environmental impact through conserva
 <section class="home-hero">
   <div class="hero-copy content-width reveal">
     <p class="eyebrow eyebrow-light">Society for Natural Resources Conservation</p>
-    <h1>Protect resources.<br>Restore places.<br>Act together.</h1>
     <p class="hero-intro">Cornell students turning environmental awareness into responsibility—and responsibility into meaningful action.</p>
     <div class="hero-actions">
       <a class="button button-light" href="{{ site.data.site.links.join }}" target="_blank" rel="noopener">Join the community <span aria-hidden="true">→</span></a>
@@ -20,7 +19,7 @@ description: Cornell SNRC creates tangible environmental impact through conserva
 <section class="intro-section section content-width">
   <div class="section-label reveal"><span>Who we are</span></div>
   <div class="intro-grid">
-    <h2 class="display-heading reveal">Real environmental change takes knowledge, practical work, and collective action.</h2>
+    <h1 class="display-heading reveal">Real environmental change takes knowledge, practical work, and collective action.</h1>
     <div class="body-copy reveal">
       <p>{{ site.data.site.organization.description }} We connect students across disciplines to protect natural resources, restore shared spaces, and strengthen a culture of sustainability.</p>
       <p>No prior experience is expected. Members can volunteer, organize, learn, advocate, build partnerships, or help shape the club’s next initiative.</p>
@@ -41,7 +40,7 @@ description: Cornell SNRC creates tangible environmental impact through conserva
     <div class="program-grid">
       {% for program in site.data.programs %}
         <article class="program-card reveal">
-          <span class="program-number">{{ program.number }}</span>
+          <span class="program-season">{{ program.season }}</span>
           <h3>{{ program.title }}</h3>
           <p>{{ program.summary }}</p>
           <ul>
@@ -55,8 +54,13 @@ description: Cornell SNRC creates tangible environmental impact through conserva
 
 <section class="section content-width">
   <div class="split-feature">
-    <div class="feature-art reveal">
-      <img src="{{ '/assets/images/brand/snrc-watercolor-logo.png' | relative_url }}" alt="SNRC watercolor logo with trees, wildlife, and McGraw Tower">
+    <div class="feature-collage reveal" aria-label="Scenes from SNRC projects and events">
+      {% for photo in site.data.home.join_photos %}
+        <figure class="collage-card collage-card-{{ photo.position }}">
+          <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+          <figcaption>{{ photo.caption }}</figcaption>
+        </figure>
+      {% endfor %}
     </div>
     <div class="feature-copy reveal">
       <p class="eyebrow">Join the work</p>
