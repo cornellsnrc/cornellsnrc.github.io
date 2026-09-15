@@ -25,12 +25,12 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
 
   deploy:
     environment:
