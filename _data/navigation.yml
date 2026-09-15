@@ -4,6 +4,8 @@
   url: /about/
 - label: Events
   url: /events/
+- label: Archive
+  url: /archive/
 - label: Gallery
   url: /gallery/
 - label: Resources

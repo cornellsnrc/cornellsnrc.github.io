@@ -10,6 +10,7 @@ You can make every common update from GitHub's website. Open the file, click the
 | Navigation links | `_data/navigation.yml` |
 | Executive-board profiles | `_data/officers.yml` |
 | Upcoming and past events | `_data/events.yml` |
+| Historical initiatives and memorable events | `_data/archive.yml` |
 | Program areas on the home page | `_data/programs.yml` |
 | Resource links | `_data/resources.yml` |
 | Officer photos | `assets/images/officers/` |
@@ -62,6 +63,22 @@ Leave `link: ""` blank if there is no registration or information page.
 
 No gallery list needs to be edited. The Gallery page finds supported image files automatically. Descriptive filenames create better image descriptions for accessibility.
 
+## Add something to the SNRC Archive
+
+Open `_data/archive.yml`, copy one complete entry, paste it at the top of the list, and replace its values:
+
+```yaml
+- title: Initiative or Event Name
+  period: October 2026
+  category: Service & Fieldwork
+  description: What SNRC did, why it mattered, and any useful result.
+  partner: Partner Organization
+  image: /assets/images/gallery/event-folder/photo.jpg
+  link: ""
+```
+
+Use a date, season, academic year, or phrase such as `Ongoing initiative` for `period`. Leave `partner`, `image`, or `link` as `""` when they do not apply. The Archive page creates and positions the card automatically.
+
 ## Change page wording
 
 The visible page files are in the repository root:
@@ -69,6 +86,7 @@ The visible page files are in the repository root:
 - `index.html` — home page
 - `about.html` — about and executive board
 - `events.html` — upcoming and past events
+- `archive.html` — data-driven history of initiatives and events
 - `gallery.html` — automatic photo gallery
 - `resources.html` — resource links
 - `contact.html` — contact and collaboration

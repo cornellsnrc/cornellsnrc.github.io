@@ -1,29 +1,29 @@
-# EDIT THIS FILE to change the four program areas shown across the site.
+# EDIT THIS FILE to change the four areas of action shown on the home page.
 - number: "01"
-  title: Conservation Technology
-  summary: Use tools such as sensors, drones, mapping, and wildlife tracking to better understand natural systems.
+  title: Advocacy & Awareness
+  summary: Turn informed dialogue into public awareness and constructive advocacy on natural-resource issues.
   topics:
-    - Remote sensing
-    - Environmental monitoring
-    - Wildlife technology
+    - Double-A initiatives
+    - Policymaker engagement
+    - Speakers and campus events
 - number: "02"
-  title: Agriculture & Land
-  summary: Explore how soil health, regenerative agriculture, pollinators, and agroforestry shape working landscapes.
+  title: LEAF Fieldwork
+  summary: Take direct ecological action through Local Ecology Action and Fieldwork projects on campus and nearby.
   topics:
-    - Soil and water
-    - Regenerative systems
-    - Pollinator ecology
+    - Tree planting
+    - Invasive-species tracking
+    - Seasonal conservation work
 - number: "03"
-  title: Policy & People
-  summary: Make room for discussion, simulation, and debate about the choices that govern natural resources.
+  title: Waste Reduction & Upcycling
+  summary: Reduce material waste through TerraCycle collection, creative reuse events, and practical campus systems.
   topics:
-    - Environmental policy
-    - Community perspectives
-    - Conservation law
+    - Hard-to-recycle materials
+    - Campus collection programs
+    - Upcycling events
 - number: "04"
-  title: Outdoors & Wildlife
-  summary: Build practical outdoor skills and learn directly through hikes, birding, camera traps, and field experiences.
+  title: Education, Service & Community
+  summary: Build shared knowledge and service through workshops, volunteer projects, speakers, and club collaborations.
   topics:
-    - Leave No Trace
-    - Local ecology
-    - Wildlife observation
+    - Gorge and campus cleanups
+    - Professional workshops
+    - Community partnerships
