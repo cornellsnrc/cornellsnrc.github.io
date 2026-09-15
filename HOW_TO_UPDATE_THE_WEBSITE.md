@@ -9,7 +9,7 @@ You can make every common update from GitHub's website. Open the file, click the
 | Organization description, email, and social links | `_data/site.yml` |
 | Navigation links | `_data/navigation.yml` |
 | Executive-board profiles | `_data/officers.yml` |
-| Upcoming and past events | `_data/events.yml` |
+| Yearly calendar and event categories | `_data/calendar.yml` |
 | Historical initiatives and memorable events | `_data/archive.yml` |
 | Program areas on the home page | `_data/programs.yml` |
 | Overlapping home-page photos | `_data/home.yml` |
@@ -41,20 +41,22 @@ If no headshot is ready, use `image: ""`. The site will show the person's initia
 
 ## Add an event
 
-Open `_data/events.yml`, copy the example block, and replace the values. Use `status: upcoming` while the event is in the future. Afterward, change it to `status: past`.
+Open `_data/calendar.yml`, copy an event block, and replace the values. The site compares `date` with today's date, so it automatically chooses the next event and knows which events have passed. Do not update a status manually. Adding an event dated in a new year automatically adds that year to the calendar.
 
 ```yaml
 - title: Event Name
   date: 2026-10-01
   time: 5:00–6:00 p.m.
   location: Location
-  status: upcoming
+  category: fieldwork
   description: A short description that helps someone decide to attend.
   link: https://cornell.campusgroups.com/...
   image: ""
 ```
 
 Leave `link: ""` blank if there is no registration or information page.
+
+Choose a category key already listed at the top of `_data/calendar.yml`: `fieldwork`, `service`, `advocacy`, `education`, or `community`. To add or recolor a category, edit the `categories` list in that same file. Its label and color appear everywhere automatically.
 
 ## Add gallery photos
 

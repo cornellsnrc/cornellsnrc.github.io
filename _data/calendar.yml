@@ -1,0 +1,20 @@
+# EDIT THIS FILE to add events. Dates automatically determine upcoming and past.
+# Adding an event in a new year adds that year with no separate setup.
+categories:
+  fieldwork: { label: "Fieldwork", color: "#286247" }
+  service: { label: "Service", color: "#B46A3C" }
+  advocacy: { label: "Advocacy", color: "#785C78" }
+  education: { label: "Education & workshops", color: "#4E7182" }
+  community: { label: "Community & socials", color: "#A47A24" }
+
+events:
+  - title: Fall Picnic & Welcome
+    date: 2026-09-10
+    time: 5:00–6:30 p.m.
+    location: Cornell Botanic Gardens
+    category: community
+    description: Our first gathering of the 2026–27 year—an easy walk, club introduction, picnic, and time to meet other students interested in conservation.
+    link: ""
+    image: ""
+
+# Copy the event above, paste it below, and replace its values to add an event.

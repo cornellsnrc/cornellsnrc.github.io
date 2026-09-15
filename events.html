@@ -5,37 +5,49 @@ description: Find upcoming Cornell SNRC conservation projects, volunteer opportu
 permalink: /events/
 ---
 
-<section class="page-hero content-width reveal">
+<section class="page-hero content-width reveal events-hero">
   <p class="eyebrow">Events</p>
   <h1>Learn. Serve. Organize. Take action.</h1>
   <p>{{ site.data.site.meeting_note }}</p>
 </section>
 
-<section class="section content-width">
-  <div class="event-section-heading reveal"><h2>Upcoming</h2><a class="text-link" href="{{ site.data.site.links.calendar }}" target="_blank" rel="noopener">Add the calendar <span aria-hidden="true">↗</span></a></div>
-  {% assign upcoming = site.data.events | where: 'status', 'upcoming' | sort: 'date' %}
-  {% if upcoming.size > 0 %}
-    <div class="event-list">
-      {% for event in upcoming %}{% include event-card.html event=event %}{% endfor %}
-    </div>
-  {% else %}
-    <div class="empty-state reveal">
-      <p class="eyebrow">Planning in progress</p>
-      <h3>More events are on the way.</h3>
-      <p>Join CampusGroups or GroupMe to hear about the next gathering first.</p>
-      <a class="button" href="{{ site.data.site.links.join }}" target="_blank" rel="noopener">Get SNRC updates <span aria-hidden="true">→</span></a>
-    </div>
-  {% endif %}
-</section>
-
-{% assign past = site.data.events | where: 'status', 'past' | sort: 'date' | reverse %}
-{% if past.size > 0 %}
-<section class="section section-soft">
-  <div class="content-width">
-    <div class="event-section-heading reveal"><h2>Past events</h2><a class="text-link" href="{{ '/gallery/' | relative_url }}">View the gallery <span aria-hidden="true">→</span></a></div>
-    <div class="event-list event-list-past">
-      {% for event in past %}{% include event-card.html event=event %}{% endfor %}
+<section class="section content-width calendar-section" data-event-calendar>
+  <script type="application/json" data-calendar-data>{{ site.data.calendar | jsonify }}</script>
+  <div class="next-event-panel reveal" data-next-event aria-live="polite">
+    <div><p class="eyebrow">Next on the calendar</p><p class="next-event-date" data-next-date>Checking the schedule…</p></div>
+    <div class="next-event-copy">
+      <span class="event-category-pill" data-next-category></span>
+      <h2 data-next-title>Upcoming event</h2><p data-next-meta></p><p data-next-description></p>
+      <a class="text-link" data-next-link target="_blank" rel="noopener">Event details <span aria-hidden="true">↗</span></a>
     </div>
   </div>
+  <div class="calendar-shell reveal">
+    <div class="calendar-toolbar">
+      <div><p class="eyebrow">Year at a glance</p><h2 class="calendar-year-title" data-calendar-year></h2></div>
+      <div class="calendar-controls" aria-label="Choose calendar year">
+        <button class="calendar-nav-button" type="button" data-calendar-previous aria-label="Previous year">←</button>
+        <button class="calendar-nav-button" type="button" data-calendar-next aria-label="Next year">→</button>
+      </div>
+    </div>
+    <div class="calendar-legend" data-calendar-legend aria-label="Event categories"></div>
+    <div class="calendar-months" data-calendar-months></div>
+  </div>
+  <noscript><p class="empty-state">Enable JavaScript to use the interactive calendar. All scheduled events are listed below.</p></noscript>
 </section>
-{% endif %}
+
+<section class="section section-soft">
+  <div class="content-width">
+    <div class="event-section-heading reveal"><h2>All scheduled events</h2><a class="text-link" href="{{ site.data.site.links.calendar }}" target="_blank" rel="noopener">Add the Google Calendar <span aria-hidden="true">↗</span></a></div>
+    {% assign events = site.data.calendar.events | sort: 'date' | reverse %}
+    {% if events.size > 0 %}<div class="event-list">{% for event in events %}{% include event-card.html event=event %}{% endfor %}</div>
+    {% else %}<div class="empty-state reveal"><h3>More events are on the way.</h3><p>Join CampusGroups or GroupMe to hear about the next gathering first.</p></div>{% endif %}
+  </div>
+</section>
+
+<dialog class="calendar-dialog" data-calendar-dialog aria-labelledby="calendar-dialog-title">
+  <div class="calendar-dialog-header">
+    <div><p class="eyebrow">Schedule</p><h2 id="calendar-dialog-title" data-dialog-date></h2></div>
+    <button type="button" class="dialog-close" data-calendar-close aria-label="Close event details">×</button>
+  </div>
+  <div class="calendar-dialog-events" data-dialog-events></div>
+</dialog>
