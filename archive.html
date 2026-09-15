@@ -22,7 +22,7 @@ permalink: /archive/
     </div>
 
     <p class="archive-status" data-archive-status aria-live="polite">{{ site.data.archive.size }} archive records</p>
-    <div class="archive-grid" data-archive-grid data-page-size="6" aria-label="SNRC activities and initiatives">
+    <div class="archive-grid" data-archive-grid data-page-size="12" aria-label="SNRC activities and initiatives">
       {% for item in site.data.archive %}
         <article class="archive-card reveal" data-archive-card>
           {% if item.image != empty %}

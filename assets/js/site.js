@@ -64,7 +64,7 @@ const archiveMoreLabel = document.querySelector('[data-archive-more-label]');
 
 if (archiveGrid && archiveMore) {
   const archiveCards = Array.from(archiveGrid.querySelectorAll('[data-archive-card]'));
-  const pageSize = Number.parseInt(archiveGrid.dataset.pageSize, 10) || 6;
+  const pageSize = Number.parseInt(archiveGrid.dataset.pageSize, 10) || 12;
   let visibleCount = Math.min(pageSize, archiveCards.length);
 
   const updateArchive = () => {
