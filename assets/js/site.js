@@ -56,3 +56,40 @@ if (lightbox && lightboxImage) {
     if (event.target === lightbox) lightbox.close();
   });
 }
+
+const archiveGrid = document.querySelector('[data-archive-grid]');
+const archiveMore = document.querySelector('[data-archive-more]');
+const archiveStatus = document.querySelector('[data-archive-status]');
+const archiveMoreLabel = document.querySelector('[data-archive-more-label]');
+
+if (archiveGrid && archiveMore) {
+  const archiveCards = Array.from(archiveGrid.querySelectorAll('[data-archive-card]'));
+  const pageSize = Number.parseInt(archiveGrid.dataset.pageSize, 10) || 6;
+  let visibleCount = Math.min(pageSize, archiveCards.length);
+
+  const updateArchive = () => {
+    archiveCards.forEach((card, index) => {
+      card.hidden = index >= visibleCount;
+    });
+
+    const remaining = archiveCards.length - visibleCount;
+    archiveMore.hidden = remaining <= 0;
+    if (remaining > 0 && archiveMoreLabel) {
+      archiveMoreLabel.textContent = `Show ${Math.min(pageSize, remaining)} more records`;
+    }
+    if (archiveStatus) {
+      archiveStatus.textContent = `Showing ${visibleCount} of ${archiveCards.length} archive records`;
+    }
+  };
+
+  archiveMore.addEventListener('click', () => {
+    const firstNewCard = archiveCards[visibleCount];
+    visibleCount = Math.min(visibleCount + pageSize, archiveCards.length);
+    updateArchive();
+    firstNewCard?.focus({ preventScroll: true });
+    firstNewCard?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  archiveCards.forEach((card) => card.setAttribute('tabindex', '-1'));
+  updateArchive();
+}
