@@ -321,6 +321,52 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 .collaboration-callout h2 { margin-bottom: 0; }
 .collaboration-callout .button { margin-top: 20px; }
 
+/* Compact informational pages */
+.page-about .page-hero,
+.page-gallery .page-hero,
+.page-resources .page-hero,
+.page-contact .page-hero { padding-top: clamp(34px, 3.5vw, 46px); padding-bottom: clamp(20px, 2.5vw, 30px); }
+.page-about .page-hero h1,
+.page-gallery .page-hero h1,
+.page-resources .page-hero h1,
+.page-contact .page-hero h1 { margin-bottom: 10px; }
+.page-about .page-hero > p:last-of-type,
+.page-gallery .page-hero > p:last-of-type,
+.page-resources .page-hero > p:last-of-type,
+.page-contact .page-hero > p:last-of-type { line-height: 1.45; }
+
+.page-about main > .section { padding-block: clamp(24px, 3vw, 38px); }
+.page-about main > .section:nth-of-type(2) { padding-top: 12px; padding-bottom: 22px; }
+.page-about .statement-panel { padding: clamp(22px, 2.8vw, 32px); }
+.page-about .statement-text-long { line-height: 1.5; }
+.page-about .section-heading-row { margin-bottom: 20px; gap: 26px; }
+.page-about .value-card { min-height: 150px; padding: 17px 18px; }
+.page-about .value-card > span { margin-bottom: 12px; }
+.page-about .legacy-quote { margin-top: 20px; padding-top: 16px; }
+.page-about .officer-grid { gap: 14px; }
+.page-about .officer-content { padding: 15px 16px 17px; }
+.page-about .officer-content h3 { margin-bottom: 7px; }
+.page-about .officer-content > p { line-height: 1.48; }
+
+.page-gallery main > .section { padding-top: 10px; padding-bottom: clamp(30px, 3vw, 42px); }
+.page-gallery .gallery-grid { gap: 12px; }
+
+.page-resources main > .section { padding-top: 12px; padding-bottom: clamp(30px, 3vw, 42px); }
+.page-resources .resource-sections { gap: 26px; }
+.page-resources .resource-group { gap: 34px; }
+.page-resources .resource-group h2 { margin-bottom: 8px; font-size: 1.75rem; }
+.page-resources .resource-card { padding-block: 11px; }
+.page-resources .resource-card small { line-height: 1.4; }
+
+.page-contact main > .section { padding-block: clamp(24px, 3vw, 36px); }
+.page-contact main > .section:nth-of-type(2) { padding-top: 10px; }
+.page-contact .contact-card { min-height: 175px; padding: 17px 18px; }
+.page-contact .contact-number { margin-bottom: 14px; }
+.page-contact .contact-card > p { margin-bottom: 5px; }
+.page-contact .collaboration-callout { gap: 30px; }
+.page-contact .collaboration-callout p { line-height: 1.48; }
+.page-contact .collaboration-callout .button { margin-top: 12px; }
+
 /* Archive */
 .archive-hero { padding-top: 38px; padding-bottom: 24px; }
 .archive-section { padding-top: 26px; padding-bottom: 40px; }
