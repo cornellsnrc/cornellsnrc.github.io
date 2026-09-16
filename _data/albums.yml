@@ -13,6 +13,11 @@
   year: 2025
   path: partnerships
 
+- name: Picnic Kickoff
+  year: 2026
+  path: picknic-kickoff-2026
+
+
 # Copy this block to add an album:
 # - name: Fall Creek Hike
 #   year: 2027
