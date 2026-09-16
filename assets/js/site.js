@@ -199,11 +199,9 @@ if (calendarRoot) {
   const yearNode = calendarRoot.querySelector('[data-calendar-year]');
   const monthsNode = calendarRoot.querySelector('[data-calendar-months]');
   const legendNode = calendarRoot.querySelector('[data-calendar-legend]');
-  const previousButton = calendarRoot.querySelector('[data-calendar-previous]');
-  const nextButton = calendarRoot.querySelector('[data-calendar-next]');
+  const yearSelect = calendarRoot.querySelector('[data-calendar-year-select]');
   const eventYears = events.map((event) => parseDate(event.date).getFullYear());
-  const years = [...new Set([today.getFullYear(), ...eventYears])].sort((a, b) => a - b);
-  let yearIndex = Math.max(0, years.indexOf(today.getFullYear()));
+  const years = [...new Set(eventYears)].sort((a, b) => b - a);
   const weekdays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   const monthNames = Array.from({ length: 12 }, (_, month) => formatDate(new Date(2024, month, 1), { month: 'long' }));
 
@@ -238,12 +236,24 @@ if (calendarRoot) {
     dialog.showModal();
   };
 
-  const renderCalendar = () => {
-    const year = years[yearIndex];
-    yearNode.textContent = year;
-    previousButton.disabled = yearIndex === 0;
-    nextButton.disabled = yearIndex === years.length - 1;
-    monthsNode.replaceChildren();
+  years.forEach((year) => {
+    const option = document.createElement('option');
+    option.value = String(year);
+    option.textContent = year;
+    yearSelect.append(option);
+  });
+
+  const renderYear = (year) => {
+    const yearGroup = document.createElement('section');
+    yearGroup.className = 'calendar-year-group';
+    if (yearSelect.value === 'all' && years.length > 1) {
+      const heading = document.createElement('h3');
+      heading.className = 'calendar-year-divider';
+      heading.textContent = year;
+      yearGroup.append(heading);
+    }
+    const monthGrid = document.createElement('div');
+    monthGrid.className = 'calendar-month-grid';
     monthNames.forEach((monthName, month) => {
       const monthElement = document.createElement('section'); monthElement.className = 'calendar-month';
       const title = document.createElement('h3'); title.textContent = monthName;
@@ -267,11 +277,29 @@ if (calendarRoot) {
         if (date.getTime() === today.getTime()) cell.classList.add('is-today');
         days.append(cell);
       }
-      monthElement.append(title, days); monthsNode.append(monthElement);
+      monthElement.append(title, days); monthGrid.append(monthElement);
     });
+    yearGroup.append(monthGrid);
+    monthsNode.append(yearGroup);
   };
-  previousButton.addEventListener('click', () => { if (yearIndex > 0) { yearIndex -= 1; renderCalendar(); } });
-  nextButton.addEventListener('click', () => { if (yearIndex < years.length - 1) { yearIndex += 1; renderCalendar(); } });
+
+  const renderCalendar = () => {
+    monthsNode.replaceChildren();
+    if (!years.length) {
+      yearNode.textContent = 'No dates yet';
+      yearSelect.disabled = true;
+      return;
+    }
+    if (yearSelect.value === 'all') {
+      yearNode.textContent = 'All years';
+      years.forEach(renderYear);
+    } else {
+      const selectedYear = Number(yearSelect.value);
+      yearNode.textContent = selectedYear;
+      renderYear(selectedYear);
+    }
+  };
+  yearSelect.addEventListener('change', renderCalendar);
   document.querySelector('[data-calendar-close]')?.addEventListener('click', () => dialog.close());
   dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
   renderCalendar();

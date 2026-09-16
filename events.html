@@ -24,10 +24,11 @@ permalink: /events/
   <div class="calendar-shell reveal">
     <div class="calendar-toolbar">
       <div><p class="eyebrow">Year at a glance</p><h2 class="calendar-year-title" data-calendar-year></h2></div>
-      <div class="calendar-controls" aria-label="Choose calendar year">
-        <button class="calendar-nav-button" type="button" data-calendar-previous aria-label="Previous year">←</button>
-        <button class="calendar-nav-button" type="button" data-calendar-next aria-label="Next year">→</button>
-      </div>
+      <label class="calendar-year-control">Year
+        <select class="calendar-year-select" data-calendar-year-select aria-label="Choose calendar year">
+          <option value="all">All years</option>
+        </select>
+      </label>
     </div>
     <div class="calendar-legend" data-calendar-legend aria-label="Event categories"></div>
     <div class="calendar-months" data-calendar-months></div>
