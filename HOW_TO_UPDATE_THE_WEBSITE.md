@@ -83,7 +83,7 @@ Open `_data/archive.yml`, copy one complete entry, paste it at the top of the li
   link: ""
 ```
 
-Use a date, season, academic year, or phrase such as `Ongoing initiative` for `period`. Set `year` to a four-digit year, `Ongoing`, or `Legacy`; this controls the year filters and newest-first sorting. Reuse consistent category names so related entries share one color and filter. Leave `partner`, `image`, or `link` as `""` when they do not apply. The Archive page creates and positions the card automatically.
+Use a date, season, academic year, or phrase such as `Ongoing initiative` for `period`. Set `year` to a four-digit year, `Ongoing`, or `Legacy`; numeric years are automatically added to the newest-first year dropdown, while ongoing and legacy records remain available under `All years`. Reuse consistent category names so related entries share one color and filter. Leave `partner`, `image`, or `link` as `""` when they do not apply. The Archive page creates and positions the card automatically.
 
 ## Change page wording
 

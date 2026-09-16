@@ -108,12 +108,14 @@ if (archiveGrid && archiveMore) {
   };
 
   const categories = [...new Set(archiveCards.map((card) => card.dataset.category))].sort();
-  const years = [...new Set(archiveCards.map((card) => card.dataset.year))].sort((a, b) => yearRank(b) - yearRank(a));
+  const years = [...new Set(archiveCards.map((card) => card.dataset.year))]
+    .filter((year) => /^\d{4}$/.test(year))
+    .sort((a, b) => Number(b) - Number(a));
   makeCategoryFilters(archiveCategoryFilters, categories);
   years.forEach((year) => {
     const option = document.createElement('option');
     option.value = year;
-    option.textContent = /^\d{4}$/.test(year) ? year : year === 'Ongoing' ? 'Ongoing work' : 'Earlier archive';
+    option.textContent = year;
     archiveYearFilter?.append(option);
   });
   archiveYearFilter?.addEventListener('change', () => {
