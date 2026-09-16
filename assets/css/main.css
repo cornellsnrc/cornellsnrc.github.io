@@ -332,9 +332,11 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 .resource-card small { color: var(--muted); font-size: 0.92rem; }
 .resource-card > span:last-child { color: var(--forest-700); font-size: 1.2rem; transition: transform 160ms ease; }
 .resource-card:hover > span:last-child { transform: translate(3px, -3px); }
-.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-.contact-card { min-height: 220px; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-decoration: none; }
-.contact-number { margin-bottom: 24px; color: var(--forest-700); font-size: 0.72rem; font-weight: 700; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.contact-card { min-height: 160px; padding: 18px; display: flex; flex-direction: column; background: #e3eadf; text-decoration: none; transition: transform 180ms ease, filter 180ms ease; }
+.contact-card:nth-child(2) { background: #e9e2d6; }
+.contact-card:nth-child(3) { background: #dce8e5; }
+.contact-card:hover { transform: translateY(-2px); filter: brightness(.98); }
 .contact-card > p { margin-bottom: 8px; color: var(--muted); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .contact-card h2 { margin-bottom: auto; overflow-wrap: anywhere; font-size: clamp(1.4rem, 2vw, 2rem); }
 .collaboration-callout { display: grid; grid-template-columns: 1fr 0.75fr; gap: 44px; align-items: start; }
@@ -390,8 +392,7 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 
 .page-contact main > .section { padding-block: clamp(24px, 3vw, 36px); }
 .page-contact main > .section:nth-of-type(2) { padding-top: 10px; }
-.page-contact .contact-card { min-height: 175px; padding: 17px 18px; }
-.page-contact .contact-number { margin-bottom: 14px; }
+.page-contact .contact-card { min-height: 150px; padding: 16px 17px; }
 .page-contact .contact-card > p { margin-bottom: 5px; }
 .page-contact .collaboration-callout { gap: 30px; }
 .page-contact .collaboration-callout p { line-height: 1.48; }
