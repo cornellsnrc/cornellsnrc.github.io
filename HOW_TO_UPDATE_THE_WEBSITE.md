@@ -11,6 +11,7 @@ You can make every common update from GitHub's website. Open the file, click the
 | Executive-board profiles | `_data/officers.yml` |
 | Yearly calendar and event categories | `_data/calendar.yml` |
 | Historical initiatives and memorable events | `_data/archive.yml` |
+| Gallery album names, years, and folders | `_data/albums.yml` |
 | Program areas on the home page | `_data/programs.yml` |
 | Overlapping home-page photos | `_data/home.yml` |
 | Resource links | `_data/resources.yml` |
@@ -60,11 +61,18 @@ Choose a category key already listed at the top of `_data/calendar.yml`: `fieldw
 
 ## Add gallery photos
 
-1. Open `assets/images/gallery/`.
-2. Create a folder named for the year and event, such as `2026-fall-creek-hike`.
-3. Upload that event's photos into the folder and commit them.
+1. Open `assets/images/gallery/` and create a folder named for the year and event, such as `2026-fall-creek-hike`.
+2. Upload that event's photos into the folder.
+3. Open `_data/albums.yml`, copy an album block, and set its `name`, `year`, and `path`. The `path` must exactly match the folder name.
+4. Commit the changes.
 
-Each folder automatically becomes a separate album on the Gallery page, and its folder name becomes the album title (`2026-fall-creek-hike` becomes “2026 Fall Creek Hike”). No gallery list or album page needs to be edited. Supported image files are found automatically. Descriptive filenames create better image descriptions for accessibility.
+The album data controls its card and sorting, while supported image files inside the matching folder are found automatically. Numeric years populate the Gallery year filter, and albums appear newest-first. Descriptive filenames create better image descriptions for accessibility.
+
+```yaml
+- name: Fall Creek Hike
+  year: 2027
+  path: 2027-fall-creek-hike
+```
 
 To feature a gallery image in the overlapping home-page collage, open `_data/home.yml` and replace an existing `image`, `alt`, and `caption`. Keep the four `position` values—`back`, `right`, `left`, and `front`—so the photos retain their layered arrangement.
 

@@ -1,0 +1,19 @@
+# EDIT THIS FILE when adding a gallery album.
+# `path` must exactly match a folder inside assets/images/gallery/.
+# Numeric years are added to the Gallery year filter and sorted newest-first.
+- name: 2026 Gorge Cleanups
+  year: 2026
+  path: 2026-gorge-cleanups
+
+- name: Earth Day
+  year: ""
+  path: earth-day
+
+- name: Partnerships
+  year: ""
+  path: partnerships
+
+# Copy this block to add an album:
+# - name: Fall Creek Hike
+#   year: 2027
+#   path: 2027-fall-creek-hike

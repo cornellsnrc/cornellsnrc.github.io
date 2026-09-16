@@ -42,6 +42,8 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 
 const galleryDataNode = document.querySelector('[data-gallery-data]');
 const galleryImages = galleryDataNode ? JSON.parse(galleryDataNode.textContent || '[]') : [];
+const galleryAlbumsDataNode = document.querySelector('[data-gallery-albums-data]');
+const galleryAlbumsData = galleryAlbumsDataNode ? JSON.parse(galleryAlbumsDataNode.textContent || '[]') : [];
 const albumTitle = (slug) => slug
   .replace(/[-_]+/g, ' ')
   .replace(/\b\w/g, (letter) => letter.toUpperCase());
@@ -50,35 +52,55 @@ const albumBrowser = document.querySelector('[data-gallery-albums]');
 if (albumBrowser) {
   const albumGrid = albumBrowser.querySelector('[data-gallery-album-grid]');
   const emptyState = albumBrowser.querySelector('[data-gallery-empty]');
+  const yearFilter = albumBrowser.querySelector('[data-gallery-year-filter]');
+  const albumStatus = albumBrowser.querySelector('[data-gallery-album-status]');
   const albumBase = albumBrowser.dataset.albumBase;
-  const albums = new Map();
+  const imagesByAlbum = new Map();
   galleryImages.forEach((image) => {
-    if (!albums.has(image.album)) albums.set(image.album, []);
-    albums.get(image.album).push(image);
+    if (!imagesByAlbum.has(image.album)) imagesByAlbum.set(image.album, []);
+    imagesByAlbum.get(image.album).push(image);
   });
-  [...albums.entries()]
-    .sort(([albumA], [albumB]) => albumB.localeCompare(albumA, undefined, { numeric: true }))
-    .forEach(([slug, images]) => {
+  const albums = galleryAlbumsData
+    .map((album) => ({ ...album, year: String(album.year || ''), images: imagesByAlbum.get(album.path) || [] }))
+    .filter((album) => album.images.length)
+    .sort((a, b) => (Number(b.year) || -1) - (Number(a.year) || -1) || a.name.localeCompare(b.name));
+  const years = [...new Set(albums.map((album) => album.year).filter((year) => /^\d{4}$/.test(year)))]
+    .sort((a, b) => Number(b) - Number(a));
+  years.forEach((year) => {
+    const option = document.createElement('option'); option.value = year; option.textContent = year; yearFilter.append(option);
+  });
+
+  const renderAlbums = () => {
+    albumGrid.replaceChildren();
+    const visibleAlbums = albums.filter((album) => yearFilter.value === 'all' || album.year === yearFilter.value);
+    visibleAlbums.forEach((album) => {
+      const { path: slug, images } = album;
       const link = document.createElement('a');
       link.className = 'gallery-album-card';
       link.href = `${albumBase}?album=${encodeURIComponent(slug)}`;
       const cover = document.createElement('img');
       cover.src = images[0].src; cover.alt = ''; cover.loading = 'lazy';
       const copy = document.createElement('span'); copy.className = 'gallery-album-copy';
-      const title = document.createElement('strong'); title.textContent = albumTitle(slug);
-      const count = document.createElement('small'); count.textContent = `${images.length} ${images.length === 1 ? 'photo' : 'photos'}`;
-      copy.append(title, count); link.append(cover, copy); albumGrid.append(link);
+      const title = document.createElement('strong'); title.textContent = album.name || albumTitle(slug);
+      const details = document.createElement('small');
+      details.textContent = [album.year, `${images.length} ${images.length === 1 ? 'photo' : 'photos'}`].filter(Boolean).join(' · ');
+      copy.append(title, details); link.append(cover, copy); albumGrid.append(link);
     });
-  emptyState.hidden = albums.size > 0;
+    albumStatus.textContent = `${visibleAlbums.length} ${visibleAlbums.length === 1 ? 'album' : 'albums'} · newest first`;
+    emptyState.hidden = visibleAlbums.length > 0;
+  };
+  yearFilter.addEventListener('change', renderAlbums);
+  renderAlbums();
 }
 
 const albumPage = document.querySelector('[data-gallery-album]');
 if (albumPage) {
   const slug = new URLSearchParams(window.location.search).get('album') || '';
   const images = galleryImages.filter((image) => image.album === slug);
+  const album = galleryAlbumsData.find((item) => item.path === slug);
   const photoGrid = albumPage.querySelector('[data-gallery-photo-grid]');
   const emptyState = albumPage.querySelector('[data-album-empty]');
-  document.querySelector('[data-album-title]').textContent = slug ? albumTitle(slug) : 'Photo album';
+  document.querySelector('[data-album-title]').textContent = album?.name || (slug ? albumTitle(slug) : 'Photo album');
   document.querySelector('[data-album-count]').textContent = images.length ? `${images.length} ${images.length === 1 ? 'photo' : 'photos'}` : '';
   images.forEach((image) => {
     const button = document.createElement('button');

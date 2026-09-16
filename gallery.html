@@ -13,6 +13,14 @@ permalink: /gallery/
 
 <section class="section content-width" data-gallery-albums data-album-base="{{ '/gallery/album/' | relative_url }}">
   {% include gallery-data.html %}
+  <div class="gallery-album-toolbar reveal">
+    <p class="gallery-album-status" data-gallery-album-status aria-live="polite"></p>
+    <label class="gallery-year-control">Year
+      <select class="gallery-year-select" data-gallery-year-filter aria-label="Filter gallery albums by year">
+        <option value="all">All years</option>
+      </select>
+    </label>
+  </div>
   <div class="gallery-album-grid" data-gallery-album-grid></div>
   <div class="empty-state reveal" data-gallery-empty hidden>
     <p class="eyebrow">A new collection</p>

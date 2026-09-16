@@ -295,6 +295,11 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 .empty-state .button { margin-top: 20px; }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .gallery-album-grid { padding: 10px 8px 18px; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: clamp(24px, 3vw, 38px); align-items: start; }
+.gallery-album-toolbar { margin-bottom: 10px; padding: 10px 8px 12px; display: flex; justify-content: space-between; align-items: end; gap: 20px; border-bottom: 1px solid var(--line); }
+.gallery-album-status { margin: 0; color: var(--muted); font-size: .76rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.gallery-year-control { display: grid; gap: 4px; color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.gallery-year-select { min-width: 130px; padding: 7px 30px 7px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--forest-900); background: var(--paper); font: inherit; font-size: .74rem; font-weight: 700; letter-spacing: 0; text-transform: none; cursor: pointer; }
+.gallery-year-select:focus-visible { outline: 2px solid var(--forest-700); outline-offset: 2px; }
 .gallery-album-card { min-width: 0; padding: 11px 11px 0; display: grid; grid-template-rows: auto auto; border: 1px solid rgba(23,34,28,.08); background: #fffefa; box-shadow: 0 13px 28px rgba(9,40,28,.14), 0 2px 5px rgba(9,40,28,.08); text-decoration: none; transform: rotate(-.65deg); transform-origin: center; transition: transform 220ms ease, box-shadow 220ms ease; }
 .gallery-album-card:nth-child(even) { transform: rotate(.75deg); }
 .gallery-album-card:nth-child(3n) { transform: rotate(-.25deg); }
