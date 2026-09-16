@@ -228,9 +228,12 @@ p { text-wrap: pretty; }
 .statement-kicker { color: var(--forest-700); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .statement-text { max-width: 1180px; margin: 0; color: var(--forest-950); font-family: var(--serif); font-size: clamp(1.65rem, 2.75vw, 2.8rem); line-height: 1.16; }
 .statement-text-long { max-width: 1100px; font-family: var(--sans); font-size: clamp(1rem, 1.35vw, 1.2rem); line-height: 1.65; }
-.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-.value-card { min-height: 180px; padding: 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.value-card > span { display: block; margin-bottom: 20px; color: var(--forest-700); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.value-card { min-height: 140px; padding: 18px; background: #e3eadf; }
+.value-card:nth-child(2) { background: #e9e2d6; }
+.value-card:nth-child(3) { background: #dce8e5; }
+.value-card h3 { margin-bottom: 7px; }
+.value-card p { margin-bottom: 0; line-height: 1.42; }
 .officer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 320px)); gap: 18px; }
 .officer-card { background: var(--paper); }
 .officer-photo { aspect-ratio: 4 / 4.25; overflow: hidden; background: #dae1d3; }
@@ -357,9 +360,7 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 .page-about .statement-panel { padding: clamp(22px, 2.8vw, 32px); }
 .page-about .statement-text-long { line-height: 1.5; }
 .page-about .section-heading-row { margin-bottom: 20px; gap: 26px; }
-.page-about .value-card { min-height: 150px; padding: 17px 18px; }
-.page-about .value-card > span { margin-bottom: 12px; }
-.page-about .legacy-quote { margin-top: 20px; padding-top: 16px; }
+.page-about .value-card { min-height: 132px; padding: 16px 17px; }
 .page-about .officer-grid { gap: 14px; }
 .page-about .officer-content { padding: 15px 16px 17px; }
 .page-about .officer-content h3 { margin-bottom: 7px; }
@@ -399,16 +400,6 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 /* Archive */
 .archive-hero { padding-top: 38px; padding-bottom: 24px; }
 .archive-section { padding-top: 26px; padding-bottom: 40px; }
-.legacy-quote {
-  margin: 28px 0 0;
-  padding: 22px 0 0;
-  border-top: 1px solid var(--line);
-  color: var(--forest-900);
-  font-family: var(--serif);
-  font-size: clamp(1.35rem, 2vw, 2rem);
-  font-style: italic;
-  line-height: 1.25;
-}
 .archive-heading {
   margin-bottom: 16px;
   display: grid;
@@ -520,7 +511,7 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
   .feature-collage { min-height: 320px; }
   .feature-copy { padding: 30px; }
   .values-grid { grid-template-columns: 1fr; }
-  .value-card { min-height: 165px; }
+  .value-card { min-height: 0; }
   .officer-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .resource-group { gap: 18px; }
