@@ -5,7 +5,7 @@ description: Explore Cornell SNRC's history of conservation projects, advocacy, 
 permalink: /archive/
 ---
 
-<section class="page-hero content-width reveal">
+<section class="page-hero content-width reveal archive-hero">
   <p class="eyebrow">SNRC Archive</p>
   <h1>A growing record of action, service, and community.</h1>
   <p>SNRC is one of Cornell’s oldest environmental clubs. This archive preserves the initiatives, partnerships, field projects, and memorable events that show how generations of members have put conservation into practice.</p>
@@ -21,16 +21,26 @@ permalink: /archive/
       <p>Browse the record below. New entries appear automatically as SNRC’s work continues.</p>
     </div>
 
+    <div class="archive-filters reveal" aria-label="Filter archive records">
+      <div class="archive-filter-group">
+        <span class="archive-filter-label">Category</span>
+        <div class="archive-filter-options" data-archive-category-filters></div>
+      </div>
+      <div class="archive-filter-group">
+        <span class="archive-filter-label">Year</span>
+        <div class="archive-filter-options" data-archive-year-filters></div>
+      </div>
+    </div>
     <p class="archive-status" data-archive-status aria-live="polite">{{ site.data.archive.size }} archive records</p>
     <div class="archive-grid" data-archive-grid data-page-size="12" aria-label="SNRC activities and initiatives">
       {% for item in site.data.archive %}
-        <article class="archive-card reveal" data-archive-card>
+        <article class="archive-card reveal" data-archive-card data-category="{{ item.category | escape }}" data-year="{{ item.year | default: 'Legacy' }}">
           {% if item.image != empty %}
             <div class="archive-image"><img src="{{ item.image | relative_url }}" alt="" loading="lazy"></div>
           {% endif %}
           <div class="archive-card-topline">
-            <span>{{ item.period }}</span>
-            <span>{{ item.category }}</span>
+            <span>{{ item.period }}{% if item.year %} · {{ item.year }}{% endif %}</span>
+            <span class="archive-category-tag">{{ item.category }}</span>
           </div>
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>

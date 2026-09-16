@@ -1,6 +1,7 @@
 # EDIT THIS FILE to add an initiative, partnership, or memorable event to the SNRC Archive.
 # Newest entries should go at the top. The page design updates automatically.
 - title: Fall Picnic & Welcome
+  year: 2026
   period: September 2026
   category: Community
   description: SNRC opened the 2026–27 year with a picnic, club introduction, and community gathering at the Cornell Botanic Gardens.
@@ -9,6 +10,7 @@
   link: ""
 
 - title: TerraCycle Campus Recycling
+  year: Ongoing
   period: Ongoing initiative
   category: Waste Reduction
   description: SNRC collects, sorts, and manages hard-to-recycle materials so items such as pens, coffee capsules, shaving handles, plastic gloves, and cosmetic tubes can be diverted from landfills.
@@ -17,22 +19,25 @@
   link: ""
 
 - title: Green Up Cornell & Gorge Cleanups
+  year: Ongoing
   period: Annual initiative
-  category: Service & Fieldwork
+  category: Fieldwork
   description: A spring community-service effort focused on removing litter and invasive species, teaching safe identification and removal, and caring for campus and local gorge spaces.
   partner: Cornell Botanic Gardens / Adopt-a-Gorge
   image: ""
   link: ""
 
 - title: Amphibian Migration Patrol
+  year: Ongoing
   period: Seasonal partnership
-  category: Wildlife Conservation
+  category: Wildlife
   description: SNRC works with the Tompkins County Amphibian Migration Patrol to support local amphibians during their seasonal movement to breeding habitat.
   partner: TCAMP
   image: ""
   link: ""
 
 - title: Love at First Upcycle
+  year: Legacy
   period: Valentine’s Day
   category: Upcycling
   description: A creative reuse event that made discarded materials useful again while giving members a social way to practice waste reduction.
@@ -41,24 +46,27 @@
   link: ""
 
 - title: Earth Day Action & Socials
+  year: Legacy
   period: Annual initiative
-  category: Advocacy & Community
+  category: Advocacy
   description: Earth Day programming combines environmental awareness and action with opportunities for Cornell students to connect around shared responsibility.
   partner: ""
   image: ""
   link: ""
 
 - title: Tree Planting
+  year: Ongoing
   period: Recurring fieldwork
-  category: LEAF
+  category: Fieldwork
   description: Hands-on ecological work that allows members to contribute directly to healthier shared landscapes and long-term local restoration.
   partner: ""
   image: ""
   link: ""
 
 - title: Spooky Succulent Upcycling
+  year: Legacy
   period: Halloween
-  category: Upcycling & Community
+  category: Community
   description: Members transformed terracotta pots into pumpkin-inspired succulent planters, pairing seasonal community-building with creative reuse.
   partner: ""
   image: ""

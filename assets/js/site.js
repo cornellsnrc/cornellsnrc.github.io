@@ -61,30 +61,84 @@ const archiveGrid = document.querySelector('[data-archive-grid]');
 const archiveMore = document.querySelector('[data-archive-more]');
 const archiveStatus = document.querySelector('[data-archive-status]');
 const archiveMoreLabel = document.querySelector('[data-archive-more-label]');
+const archiveCategoryFilters = document.querySelector('[data-archive-category-filters]');
+const archiveYearFilters = document.querySelector('[data-archive-year-filters]');
 
 if (archiveGrid && archiveMore) {
   const archiveCards = Array.from(archiveGrid.querySelectorAll('[data-archive-card]'));
   const pageSize = Number.parseInt(archiveGrid.dataset.pageSize, 10) || 12;
-  let visibleCount = Math.min(pageSize, archiveCards.length);
+  const categoryColors = {
+    'Community': '#A47A24',
+    'Fieldwork': '#286247',
+    'Waste Reduction': '#B46A3C',
+    'Wildlife': '#4E7182',
+    'Upcycling': '#8A5D7B',
+    'Advocacy': '#785C78'
+  };
+  const yearRank = (year) => year === 'Ongoing' ? 10000 : /^\d{4}$/.test(year) ? Number(year) : -1;
+  archiveCards.sort((a, b) => yearRank(b.dataset.year) - yearRank(a.dataset.year));
+  archiveCards.forEach((card) => {
+    const color = categoryColors[card.dataset.category] || '#286247';
+    card.style.setProperty('--archive-color', color);
+    archiveGrid.append(card);
+  });
+
+  let activeCategory = 'All';
+  let activeYear = 'All';
+  let visibleCount = pageSize;
+
+  const makeFilters = (container, values, type) => {
+    if (!container) return;
+    ['All', ...values].forEach((value) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'archive-filter';
+      button.textContent = value;
+      button.dataset.filterValue = value;
+      button.setAttribute('aria-pressed', String(value === 'All'));
+      if (type === 'category' && value !== 'All') button.style.setProperty('--archive-color', categoryColors[value] || '#286247');
+      button.addEventListener('click', () => {
+        if (type === 'category') activeCategory = value;
+        else activeYear = value;
+        container.querySelectorAll('.archive-filter').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        visibleCount = pageSize;
+        updateArchive();
+      });
+      container.append(button);
+    });
+  };
+
+  const categories = [...new Set(archiveCards.map((card) => card.dataset.category))].sort();
+  const years = [...new Set(archiveCards.map((card) => card.dataset.year))].sort((a, b) => yearRank(b) - yearRank(a));
+  makeFilters(archiveCategoryFilters, categories, 'category');
+  makeFilters(archiveYearFilters, years, 'year');
 
   const updateArchive = () => {
-    archiveCards.forEach((card, index) => {
+    const filteredCards = archiveCards.filter((card) => {
+      const categoryMatches = activeCategory === 'All' || card.dataset.category === activeCategory;
+      const yearMatches = activeYear === 'All' || card.dataset.year === activeYear;
+      return categoryMatches && yearMatches;
+    });
+    archiveCards.forEach((card) => { card.hidden = true; });
+    filteredCards.forEach((card, index) => {
       card.hidden = index >= visibleCount;
     });
 
-    const remaining = archiveCards.length - visibleCount;
+    const shown = Math.min(visibleCount, filteredCards.length);
+    const remaining = filteredCards.length - shown;
     archiveMore.hidden = remaining <= 0;
     if (remaining > 0 && archiveMoreLabel) {
       archiveMoreLabel.textContent = `Show ${Math.min(pageSize, remaining)} more records`;
     }
     if (archiveStatus) {
-      archiveStatus.textContent = `Showing ${visibleCount} of ${archiveCards.length} archive records`;
+      archiveStatus.textContent = `Showing ${shown} of ${filteredCards.length} archive records · newest first`;
     }
   };
 
   archiveMore.addEventListener('click', () => {
-    const firstNewCard = archiveCards[visibleCount];
-    visibleCount = Math.min(visibleCount + pageSize, archiveCards.length);
+    const filteredCards = archiveCards.filter((card) => (activeCategory === 'All' || card.dataset.category === activeCategory) && (activeYear === 'All' || card.dataset.year === activeYear));
+    const firstNewCard = filteredCards[visibleCount];
+    visibleCount = Math.min(visibleCount + pageSize, filteredCards.length);
     updateArchive();
     firstNewCard?.focus({ preventScroll: true });
     firstNewCard?.scrollIntoView({ behavior: 'smooth', block: 'center' });
