@@ -124,7 +124,7 @@ p { text-wrap: pretty; }
   gap: 32px;
 }
 .brand { display: flex; align-items: center; gap: 16px; text-decoration: none; }
-.brand img { width: 112px; height: 38px; object-fit: contain; }
+.brand img { width: 112px; height: 38px; object-fit: contain; filter: brightness(.62) saturate(.9) contrast(1.12); }
 .brand-context { padding-left: 16px; border-left: 1px solid var(--line); color: var(--muted); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .site-nav { display: flex; align-items: center; gap: clamp(18px, 2vw, 30px); }
 .site-nav > a:not(.button) {
