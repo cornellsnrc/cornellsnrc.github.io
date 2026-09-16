@@ -10,6 +10,14 @@
     - title: SNRC Calendar
       description: Add upcoming meetings and events to your calendar.
       url: https://calendar.google.com/calendar/u/0?cid=Y29ybmVsbHNucmNAZ21haWwuY29t
+- category: Member Access
+  items:
+    - title: SNRC-OP
+      description: View how you've contributed to SNRC and track your hours for the semester through our online points system!
+      url: https://snrc.tommymcf.com/
+    - title: Google Drive Workspace
+      description: Access shared documents, spreadsheets, and presentations for SNRC. Requires a Cornell Google account.
+      url: https://drive.google.com/drive/folders/1w5pRI0LWCJd9sw_t0CfLAyUyR50Ce_EG?usp=sharing
 - category: Cornell & Conservation
   items:
     - title: Cornell Botanic Gardens
