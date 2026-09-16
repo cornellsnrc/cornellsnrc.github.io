@@ -57,7 +57,7 @@ Open `_data/calendar.yml`, copy an event block, and replace the values. The site
 
 For `image`, enter only `album-folder/photo-name.jpg` from `assets/images/gallery/`; the website adds the rest of the path automatically. Use `image: ""` when no image is needed. Leave `link: ""` blank if there is no registration or information page.
 
-Choose a category key already listed at the top of `_data/calendar.yml`: `fieldwork`, `service`, `advocacy`, `education`, or `community`. To add or recolor a category, edit the `categories` list in that same file. Its label and color appear everywhere automatically.
+Choose a category key already listed at the top of `_data/calendar.yml`: `fieldwork`, `service`, `advocacy`, `education`, `community`, or `eboard`. To add or recolor a category, edit the `categories` list in that same file. Its label and color appear everywhere automatically.
 
 ## Add gallery photos
 
