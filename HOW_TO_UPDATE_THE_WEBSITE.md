@@ -52,10 +52,9 @@ Open `_data/calendar.yml`, copy an event block, and replace the values. The site
   category: fieldwork
   description: A short description that helps someone decide to attend.
   link: https://cornell.campusgroups.com/...
-  image: 2026-event-folder/event-photo.jpg
 ```
 
-For `image`, enter only `album-folder/photo-name.jpg` from `assets/images/gallery/`; the website adds the rest of the path automatically. Use `image: ""` when no image is needed. Leave `link: ""` blank if there is no registration or information page.
+Leave `link: ""` blank if there is no registration or information page.
 
 Choose a category key already listed at the top of `_data/calendar.yml`: `fieldwork`, `service`, `advocacy`, `education`, `community`, or `eboard`. To add or recolor a category, edit the `categories` list in that same file. Its label and color appear everywhere automatically.
 
@@ -78,20 +77,28 @@ To feature a gallery image in the overlapping home-page collage, open `_data/hom
 
 ## Add something to the SNRC Archive
 
-Open `_data/archive.yml`, copy one complete entry, paste it at the top of the list, and replace its values:
+Open `_data/archive.yml`, copy one complete record, paste it at the top of the `records` list, and replace its values:
 
 ```yaml
 - title: Initiative or Event Name
   year: 2026
   period: October 2026
-  category: Service & Fieldwork
+  category: fieldwork
   description: What SNRC did, why it mattered, and any useful result.
   partner: Partner Organization
-  image: event-folder/photo.jpg
   link: ""
 ```
 
-Use a date, season, academic year, or phrase such as `Ongoing initiative` for `period`. Set `year` to a four-digit year, `Ongoing`, or `Legacy`; numeric years are automatically added to the newest-first year dropdown, while ongoing and legacy records remain available under `All years`. For `image`, enter only `album-folder/photo-name.jpg` from `assets/images/gallery/`. Reuse consistent category names so related entries share one color and filter. Leave `partner`, `image`, or `link` as `""` when they do not apply. The Archive page creates and positions the card automatically.
+Use a date, season, academic year, or phrase such as `Ongoing initiative` for `period`. Set `year` to a four-digit year, `Ongoing`, or `Legacy`; numeric years are automatically added to the newest-first year dropdown, while ongoing and legacy records remain available under `All years`. Set `category` to one of the category keys defined at the top of `_data/archive.yml`.
+
+Archive categories work like calendar categories. Add or edit a key, visible label, and card/filter color in the `categories` section:
+
+```yaml
+categories:
+  fieldwork: { label: "Fieldwork", color: "#286247" }
+```
+
+Leave `partner` or `link` as `""` when they do not apply. The Archive page creates, colors, filters, and positions the card automatically.
 
 ## Change page wording
 

@@ -13,6 +13,7 @@ permalink: /archive/
 
 <section class="section archive-section">
   <div class="content-width">
+    <script type="application/json" data-archive-categories>{{ site.data.archive.categories | jsonify }}</script>
     <div class="archive-heading reveal">
       <div>
         <p class="eyebrow">Our work over time</p>
@@ -33,17 +34,14 @@ permalink: /archive/
         </select>
       </div>
     </div>
-    <p class="archive-status" data-archive-status aria-live="polite">{{ site.data.archive.size }} archive records</p>
+    <p class="archive-status" data-archive-status aria-live="polite">{{ site.data.archive.records.size }} archive records</p>
     <div class="archive-grid" data-archive-grid data-page-size="12" aria-label="SNRC activities and initiatives">
-      {% for item in site.data.archive %}
+      {% for item in site.data.archive.records %}
+        {% assign archive_category = site.data.archive.categories[item.category] %}
         <article class="archive-card reveal" data-archive-card data-category="{{ item.category | escape }}" data-year="{{ item.year | default: 'Legacy' }}">
-          {% if item.image != empty %}
-            {% assign archive_image_path = '/assets/images/gallery/' | append: item.image %}
-            <div class="archive-image"><img src="{{ archive_image_path | relative_url }}" alt="" loading="lazy"></div>
-          {% endif %}
           <div class="archive-card-topline">
             <span>{{ item.period }}</span>
-            <span class="archive-category-tag">{{ item.category }}</span>
+            <span class="archive-category-tag">{{ archive_category.label | default: item.category }}</span>
           </div>
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>

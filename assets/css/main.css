@@ -435,8 +435,6 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
   background: var(--cream);
 }
 .archive-card[hidden] { display: none; }
-.archive-image { margin: -18px -18px 14px; height: 96px; overflow: hidden; }
-.archive-image img { width: 100%; height: 100%; object-fit: cover; }
 .archive-card-topline {
   margin-bottom: 13px;
   display: flex;
@@ -548,7 +546,6 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
   .contact-card { min-height: 180px; }
   .archive-grid { grid-template-columns: 1fr; }
   .archive-card { min-height: 0; padding: 18px; }
-  .archive-image { margin: -18px -18px 14px; }
   .archive-filter-group { grid-template-columns: 1fr; gap: 6px; }
   .footer-cta { min-height: 0; }
   .footer-cta .button { width: 100%; }

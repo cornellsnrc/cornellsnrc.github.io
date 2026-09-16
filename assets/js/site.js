@@ -136,22 +136,16 @@ const archiveStatus = document.querySelector('[data-archive-status]');
 const archiveMoreLabel = document.querySelector('[data-archive-more-label]');
 const archiveCategoryFilters = document.querySelector('[data-archive-category-filters]');
 const archiveYearFilter = document.querySelector('[data-archive-year-filter]');
+const archiveCategoriesNode = document.querySelector('[data-archive-categories]');
 
 if (archiveGrid && archiveMore) {
   const archiveCards = Array.from(archiveGrid.querySelectorAll('[data-archive-card]'));
   const pageSize = Number.parseInt(archiveGrid.dataset.pageSize, 10) || 12;
-  const categoryColors = {
-    'Community': '#A47A24',
-    'Fieldwork': '#286247',
-    'Waste Reduction': '#B46A3C',
-    'Wildlife': '#4E7182',
-    'Upcycling': '#8A5D7B',
-    'Advocacy': '#785C78'
-  };
+  const archiveCategories = JSON.parse(archiveCategoriesNode?.textContent || '{}');
   const yearRank = (year) => year === 'Ongoing' ? 10000 : /^\d{4}$/.test(year) ? Number(year) : -1;
   archiveCards.sort((a, b) => yearRank(b.dataset.year) - yearRank(a.dataset.year));
   archiveCards.forEach((card) => {
-    const color = categoryColors[card.dataset.category] || '#286247';
+    const color = archiveCategories[card.dataset.category]?.color || '#286247';
     card.style.setProperty('--archive-color', color);
     archiveGrid.append(card);
   });
@@ -166,10 +160,10 @@ if (archiveGrid && archiveMore) {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'archive-filter';
-      button.textContent = value;
+      button.textContent = value === 'All' ? value : archiveCategories[value]?.label || value;
       button.dataset.filterValue = value;
       button.setAttribute('aria-pressed', String(value === 'All'));
-      if (value !== 'All') button.style.setProperty('--archive-color', categoryColors[value] || '#286247');
+      if (value !== 'All') button.style.setProperty('--archive-color', archiveCategories[value]?.color || '#286247');
       button.addEventListener('click', () => {
         activeCategory = value;
         container.querySelectorAll('.archive-filter').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
@@ -180,7 +174,8 @@ if (archiveGrid && archiveMore) {
     });
   };
 
-  const categories = [...new Set(archiveCards.map((card) => card.dataset.category))].sort();
+  const categories = [...new Set(archiveCards.map((card) => card.dataset.category))]
+    .sort((a, b) => (archiveCategories[a]?.label || a).localeCompare(archiveCategories[b]?.label || b));
   const years = [...new Set(archiveCards.map((card) => card.dataset.year))]
     .filter((year) => /^\d{4}$/.test(year))
     .sort((a, b) => Number(b) - Number(a));
