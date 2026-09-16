@@ -16,5 +16,19 @@ events:
     category: community
     description: Our first gathering of the 2026–27 year—an easy walk, club introduction, picnic, and time to meet other students interested in conservation.
     link: "https://cglink.me/2ee/r2312071"
+  - title: North Gorge Clean-Up
+    date: 2026-09-19
+    time: 1:00-3:00 p.m.
+    location: Olive Tjaden Hall, Parking Lot
+    category: fieldwork
+    description: Join us for a gorge clean-up! We will be meeting at the Olive Tjaden Hall parking lot and walking to the gorge from there. Please wear closed-toe shoes and bring a water bottle. Gloves and trash bags will be provided.
+    link: "https://cglink.me/2ee/r2312071"
+  - title: EBoard Meeting
+    date: 2026-09-17
+    time: 5:00-6:00 p.m.
+    location: Caldwell Hall 250
+    category: eboard
+    description: EBoard meeting to discuss upcoming events and initiatives. All officers are expected to attend
+    link: ""
 
 # Copy the event above, paste it below, and replace its values to add an event.
