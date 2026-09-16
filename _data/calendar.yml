@@ -1,5 +1,6 @@
 # EDIT THIS FILE to add events. Dates automatically determine upcoming and past.
 # Adding an event in a new year adds that year with no separate setup.
+# IMAGE FORMAT: album-folder/photo-name.jpg (from assets/images/gallery/), or "" for none.
 categories:
   fieldwork: { label: "Fieldwork", color: "#286247" }
   service: { label: "Service", color: "#B46A3C" }
@@ -15,6 +16,6 @@ events:
     category: community
     description: Our first gathering of the 2026–27 year—an easy walk, club introduction, picnic, and time to meet other students interested in conservation.
     link: "https://cglink.me/2ee/r2312071"
-    image: "assets/images/gallery/picnic-kickoff-2026/2026-picnic-kickoff.jpg"
+    image: picnic-kickoff-2026/SNRC_Picnic_group.jpg.jpeg
 
 # Copy the event above, paste it below, and replace its values to add an event.

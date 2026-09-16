@@ -42,7 +42,8 @@ permalink: /about/
         <article class="officer-card reveal">
           <div class="officer-photo {% if officer.image == empty %}officer-photo-placeholder{% endif %}">
             {% if officer.image != empty %}
-              <img src="{{ officer.image | relative_url }}" alt="{{ officer.name }}">
+              {% assign officer_image_path = '/assets/images/officers/' | append: officer.image %}
+              <img src="{{ officer_image_path | relative_url }}" alt="{{ officer.name }}">
             {% else %}
               <span aria-hidden="true">{{ officer.name | slice: 0 }}</span>
             {% endif %}

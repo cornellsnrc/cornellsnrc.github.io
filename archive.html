@@ -38,7 +38,8 @@ permalink: /archive/
       {% for item in site.data.archive %}
         <article class="archive-card reveal" data-archive-card data-category="{{ item.category | escape }}" data-year="{{ item.year | default: 'Legacy' }}">
           {% if item.image != empty %}
-            <div class="archive-image"><img src="{{ item.image | relative_url }}" alt="" loading="lazy"></div>
+            {% assign archive_image_path = '/assets/images/gallery/' | append: item.image %}
+            <div class="archive-image"><img src="{{ archive_image_path | relative_url }}" alt="" loading="lazy"></div>
           {% endif %}
           <div class="archive-card-topline">
             <span>{{ item.period }}</span>

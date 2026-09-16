@@ -1,5 +1,6 @@
 # EDIT THIS FILE to add, remove, or reorder officer cards.
-# Put headshots in assets/images/officers/ and use a path like the example below.
+# Put headshots in assets/images/officers/ and enter only the photo filename.
+# IMAGE FORMAT: first-last.jpg, or "" for the initial placeholder.
 - name: Kyle O'Connor
   role: President
   image: ""
@@ -39,6 +40,6 @@
 # Copy this block, remove the leading # marks, and replace the values:
 # - name: Full Name
 #   role: Position
-#   image: /assets/images/officers/first-last.jpg
+#   image: first-last.jpg
 #   bio: One or two concise sentences about the officer.
 #   email: optional-email@cornell.edu

@@ -33,12 +33,12 @@ Example:
 ```yaml
 - name: Full Name
   role: President
-  image: /assets/images/officers/full-name.jpg
+  image: full-name.jpg
   bio: A concise one- or two-sentence biography.
   email: netid@cornell.edu
 ```
 
-If no headshot is ready, use `image: ""`. The site will show the person's initial instead.
+Enter only the filename from `assets/images/officers/`; the website adds the folder automatically. If no headshot is ready, use `image: ""`. The site will show the person's initial instead.
 
 ## Add an event
 
@@ -52,10 +52,10 @@ Open `_data/calendar.yml`, copy an event block, and replace the values. The site
   category: fieldwork
   description: A short description that helps someone decide to attend.
   link: https://cornell.campusgroups.com/...
-  image: ""
+  image: 2026-event-folder/event-photo.jpg
 ```
 
-Leave `link: ""` blank if there is no registration or information page.
+For `image`, enter only `album-folder/photo-name.jpg` from `assets/images/gallery/`; the website adds the rest of the path automatically. Use `image: ""` when no image is needed. Leave `link: ""` blank if there is no registration or information page.
 
 Choose a category key already listed at the top of `_data/calendar.yml`: `fieldwork`, `service`, `advocacy`, `education`, or `community`. To add or recolor a category, edit the `categories` list in that same file. Its label and color appear everywhere automatically.
 
@@ -74,7 +74,7 @@ The album data controls its card and sorting, while supported image files inside
   path: 2027-fall-creek-hike
 ```
 
-To feature a gallery image in the overlapping home-page collage, open `_data/home.yml` and replace an existing `image`, `alt`, and `caption`. Keep the four `position` values—`back`, `right`, `left`, and `front`—so the photos retain their layered arrangement.
+To feature a gallery image in the overlapping home-page collage, open `_data/home.yml` and replace an existing `image`, `alt`, and `caption`. Enter the image as `album-folder/photo-name.jpg`; do not include `/assets/images/gallery/`. Keep the four `position` values—`back`, `right`, `left`, and `front`—so the photos retain their layered arrangement.
 
 ## Add something to the SNRC Archive
 
@@ -87,11 +87,11 @@ Open `_data/archive.yml`, copy one complete entry, paste it at the top of the li
   category: Service & Fieldwork
   description: What SNRC did, why it mattered, and any useful result.
   partner: Partner Organization
-  image: /assets/images/gallery/event-folder/photo.jpg
+  image: event-folder/photo.jpg
   link: ""
 ```
 
-Use a date, season, academic year, or phrase such as `Ongoing initiative` for `period`. Set `year` to a four-digit year, `Ongoing`, or `Legacy`; numeric years are automatically added to the newest-first year dropdown, while ongoing and legacy records remain available under `All years`. Reuse consistent category names so related entries share one color and filter. Leave `partner`, `image`, or `link` as `""` when they do not apply. The Archive page creates and positions the card automatically.
+Use a date, season, academic year, or phrase such as `Ongoing initiative` for `period`. Set `year` to a four-digit year, `Ongoing`, or `Legacy`; numeric years are automatically added to the newest-first year dropdown, while ongoing and legacy records remain available under `All years`. For `image`, enter only `album-folder/photo-name.jpg` from `assets/images/gallery/`. Reuse consistent category names so related entries share one color and filter. Leave `partner`, `image`, or `link` as `""` when they do not apply. The Archive page creates and positions the card automatically.
 
 ## Change page wording
 
