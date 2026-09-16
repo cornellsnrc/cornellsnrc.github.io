@@ -40,15 +40,66 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   revealItems.forEach((item) => item.classList.add('revealed'));
 }
 
+const galleryDataNode = document.querySelector('[data-gallery-data]');
+const galleryImages = galleryDataNode ? JSON.parse(galleryDataNode.textContent || '[]') : [];
+const albumTitle = (slug) => slug
+  .replace(/[-_]+/g, ' ')
+  .replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+const albumBrowser = document.querySelector('[data-gallery-albums]');
+if (albumBrowser) {
+  const albumGrid = albumBrowser.querySelector('[data-gallery-album-grid]');
+  const emptyState = albumBrowser.querySelector('[data-gallery-empty]');
+  const albumBase = albumBrowser.dataset.albumBase;
+  const albums = new Map();
+  galleryImages.forEach((image) => {
+    if (!albums.has(image.album)) albums.set(image.album, []);
+    albums.get(image.album).push(image);
+  });
+  [...albums.entries()]
+    .sort(([albumA], [albumB]) => albumB.localeCompare(albumA, undefined, { numeric: true }))
+    .forEach(([slug, images]) => {
+      const link = document.createElement('a');
+      link.className = 'gallery-album-card';
+      link.href = `${albumBase}?album=${encodeURIComponent(slug)}`;
+      const cover = document.createElement('img');
+      cover.src = images[0].src; cover.alt = ''; cover.loading = 'lazy';
+      const copy = document.createElement('span'); copy.className = 'gallery-album-copy';
+      const title = document.createElement('strong'); title.textContent = albumTitle(slug);
+      const count = document.createElement('small'); count.textContent = `${images.length} ${images.length === 1 ? 'photo' : 'photos'}`;
+      copy.append(title, count); link.append(cover, copy); albumGrid.append(link);
+    });
+  emptyState.hidden = albums.size > 0;
+}
+
+const albumPage = document.querySelector('[data-gallery-album]');
+if (albumPage) {
+  const slug = new URLSearchParams(window.location.search).get('album') || '';
+  const images = galleryImages.filter((image) => image.album === slug);
+  const photoGrid = albumPage.querySelector('[data-gallery-photo-grid]');
+  const emptyState = albumPage.querySelector('[data-album-empty]');
+  document.querySelector('[data-album-title]').textContent = slug ? albumTitle(slug) : 'Photo album';
+  document.querySelector('[data-album-count]').textContent = images.length ? `${images.length} ${images.length === 1 ? 'photo' : 'photos'}` : '';
+  images.forEach((image) => {
+    const button = document.createElement('button');
+    button.className = 'gallery-item'; button.type = 'button';
+    button.dataset.galleryItem = ''; button.dataset.src = image.src; button.dataset.alt = image.alt;
+    const photo = document.createElement('img'); photo.src = image.src; photo.alt = image.alt; photo.loading = 'lazy';
+    const label = document.createElement('span'); label.textContent = 'View photo';
+    button.append(photo, label); photoGrid.append(button);
+  });
+  emptyState.hidden = images.length > 0;
+}
+
 const lightbox = document.querySelector('[data-lightbox]');
 const lightboxImage = document.querySelector('[data-lightbox-image]');
 if (lightbox && lightboxImage) {
-  document.querySelectorAll('[data-gallery-item]').forEach((item) => {
-    item.addEventListener('click', () => {
-      lightboxImage.src = item.dataset.src;
-      lightboxImage.alt = item.dataset.alt;
-      lightbox.showModal();
-    });
+  document.addEventListener('click', (event) => {
+    const item = event.target.closest('[data-gallery-item]');
+    if (!item) return;
+    lightboxImage.src = item.dataset.src;
+    lightboxImage.alt = item.dataset.alt;
+    lightbox.showModal();
   });
 
   document.querySelector('[data-lightbox-close]')?.addEventListener('click', () => lightbox.close());

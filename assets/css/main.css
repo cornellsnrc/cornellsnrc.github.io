@@ -294,6 +294,15 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 .empty-state h2, .empty-state h3 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
 .empty-state .button { margin-top: 20px; }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.gallery-album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.gallery-album-card { min-width: 0; display: grid; grid-template-rows: auto auto; overflow: hidden; border: 1px solid var(--line); background: var(--cream); text-decoration: none; }
+.gallery-album-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 250ms ease; }
+.gallery-album-card:hover img { transform: scale(1.025); }
+.gallery-album-copy { padding: 13px 15px 14px; display: flex; justify-content: space-between; align-items: baseline; gap: 14px; }
+.gallery-album-copy strong { color: var(--ink); font-family: var(--serif); font-size: 1.25rem; font-weight: 500; }
+.gallery-album-copy small { flex: none; color: var(--muted); font-size: .76rem; }
+.gallery-back-link { margin-bottom: 14px; display: inline-block; }
+.gallery-album-hero .eyebrow { margin-top: 4px; }
 .gallery-item { position: relative; aspect-ratio: 4 / 3; overflow: hidden; padding: 0; border: 0; background: #dce2d9; cursor: zoom-in; }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 350ms ease; }
 .gallery-item span { position: absolute; right: 14px; bottom: 14px; padding: 7px 10px; background: rgba(11, 40, 28, 0.86); color: white; font-size: 0.72rem; font-weight: 700; opacity: 0; transition: opacity 180ms ease; }

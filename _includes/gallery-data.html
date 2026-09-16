@@ -1,0 +1,15 @@
+<script type="application/json" data-gallery-data>[
+{% assign first_gallery_image = true %}
+{% for file in site.static_files %}
+  {% if file.path contains '/assets/images/gallery/' %}
+    {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.webp' or file.extname == '.avif' %}
+      {% assign gallery_relative = file.path | remove_first: '/assets/images/gallery/' %}
+      {% assign gallery_parts = gallery_relative | split: '/' %}
+      {% if gallery_parts.size > 1 %}{% assign gallery_album = gallery_parts[0] %}{% else %}{% assign gallery_album = 'general-photos' %}{% endif %}
+      {% assign gallery_name = file.basename | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
+      {% unless first_gallery_image %},{% endunless %}{"album":{{ gallery_album | jsonify }},"src":{{ file.path | relative_url | jsonify }},"alt":{{ gallery_name | jsonify }}}
+      {% assign first_gallery_image = false %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+]</script>

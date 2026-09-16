@@ -62,9 +62,9 @@ Choose a category key already listed at the top of `_data/calendar.yml`: `fieldw
 
 1. Open `assets/images/gallery/`.
 2. Create a folder named for the year and event, such as `2026-fall-creek-hike`.
-3. Upload the photos and commit them.
+3. Upload that event's photos into the folder and commit them.
 
-No gallery list needs to be edited. The Gallery page finds supported image files automatically. Descriptive filenames create better image descriptions for accessibility.
+Each folder automatically becomes a separate album on the Gallery page, and its folder name becomes the album title (`2026-fall-creek-hike` becomes “2026 Fall Creek Hike”). No gallery list or album page needs to be edited. Supported image files are found automatically. Descriptive filenames create better image descriptions for accessibility.
 
 To feature a gallery image in the overlapping home-page collage, open `_data/home.yml` and replace an existing `image`, `alt`, and `caption`. Keep the four `position` values—`back`, `right`, `left`, and `front`—so the photos retain their layered arrangement.
 
