@@ -6,11 +6,11 @@
   path: 2026-gorge-cleanups
 
 - name: Earth Day
-  year: ""
+  year: 2026
   path: earth-day
 
 - name: Partnerships
-  year: ""
+  year: 2025
   path: partnerships
 
 # Copy this block to add an album:
