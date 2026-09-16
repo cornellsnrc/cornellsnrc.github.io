@@ -352,6 +352,8 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 .archive-filter:hover { border-color: var(--forest-700); }
 .archive-filter[aria-pressed="true"] { color: var(--white); border-color: var(--forest-900); background: var(--forest-900); }
 .archive-filter[aria-pressed="true"]::before { box-shadow: 0 0 0 1px rgba(255,255,255,.65); }
+.archive-year-select { width: fit-content; min-width: 150px; padding: 7px 32px 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--forest-900); background: var(--paper); font: inherit; font-size: .72rem; font-weight: 700; cursor: pointer; }
+.archive-year-select:focus-visible { outline: 2px solid var(--forest-700); outline-offset: 2px; }
 .archive-status { margin-bottom: 10px; color: var(--muted); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .archive-grid {
   display: grid;

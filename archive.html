@@ -28,7 +28,9 @@ permalink: /archive/
       </div>
       <div class="archive-filter-group">
         <span class="archive-filter-label">Year</span>
-        <div class="archive-filter-options" data-archive-year-filters></div>
+        <select class="archive-year-select" data-archive-year-filter aria-label="Filter archive by year">
+          <option value="All">All years</option>
+        </select>
       </div>
     </div>
     <p class="archive-status" data-archive-status aria-live="polite">{{ site.data.archive.size }} archive records</p>
@@ -39,7 +41,7 @@ permalink: /archive/
             <div class="archive-image"><img src="{{ item.image | relative_url }}" alt="" loading="lazy"></div>
           {% endif %}
           <div class="archive-card-topline">
-            <span>{{ item.period }}{% if item.year %} · {{ item.year }}{% endif %}</span>
+            <span>{{ item.period }}</span>
             <span class="archive-category-tag">{{ item.category }}</span>
           </div>
           <h3>{{ item.title }}</h3>

@@ -62,7 +62,7 @@ const archiveMore = document.querySelector('[data-archive-more]');
 const archiveStatus = document.querySelector('[data-archive-status]');
 const archiveMoreLabel = document.querySelector('[data-archive-more-label]');
 const archiveCategoryFilters = document.querySelector('[data-archive-category-filters]');
-const archiveYearFilters = document.querySelector('[data-archive-year-filters]');
+const archiveYearFilter = document.querySelector('[data-archive-year-filter]');
 
 if (archiveGrid && archiveMore) {
   const archiveCards = Array.from(archiveGrid.querySelectorAll('[data-archive-card]'));
@@ -87,7 +87,7 @@ if (archiveGrid && archiveMore) {
   let activeYear = 'All';
   let visibleCount = pageSize;
 
-  const makeFilters = (container, values, type) => {
+  const makeCategoryFilters = (container, values) => {
     if (!container) return;
     ['All', ...values].forEach((value) => {
       const button = document.createElement('button');
@@ -96,10 +96,9 @@ if (archiveGrid && archiveMore) {
       button.textContent = value;
       button.dataset.filterValue = value;
       button.setAttribute('aria-pressed', String(value === 'All'));
-      if (type === 'category' && value !== 'All') button.style.setProperty('--archive-color', categoryColors[value] || '#286247');
+      if (value !== 'All') button.style.setProperty('--archive-color', categoryColors[value] || '#286247');
       button.addEventListener('click', () => {
-        if (type === 'category') activeCategory = value;
-        else activeYear = value;
+        activeCategory = value;
         container.querySelectorAll('.archive-filter').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
         visibleCount = pageSize;
         updateArchive();
@@ -110,8 +109,18 @@ if (archiveGrid && archiveMore) {
 
   const categories = [...new Set(archiveCards.map((card) => card.dataset.category))].sort();
   const years = [...new Set(archiveCards.map((card) => card.dataset.year))].sort((a, b) => yearRank(b) - yearRank(a));
-  makeFilters(archiveCategoryFilters, categories, 'category');
-  makeFilters(archiveYearFilters, years, 'year');
+  makeCategoryFilters(archiveCategoryFilters, categories);
+  years.forEach((year) => {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = /^\d{4}$/.test(year) ? year : year === 'Ongoing' ? 'Ongoing work' : 'Earlier archive';
+    archiveYearFilter?.append(option);
+  });
+  archiveYearFilter?.addEventListener('change', () => {
+    activeYear = archiveYearFilter.value;
+    visibleCount = pageSize;
+    updateArchive();
+  });
 
   const updateArchive = () => {
     const filteredCards = archiveCards.filter((card) => {
