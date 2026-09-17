@@ -8,8 +8,8 @@ You can complete every routine website update in your browser. You do **not** ne
 
 | I want to… | Open this |
 | --- | --- |
-| Add photos to an existing gallery album | [Open gallery folders](https://github.com/mn579/snrc-website/tree/main/assets/images/gallery) |
-| Create, rename, or reorder a gallery album | [Edit album information](https://github.com/mn579/snrc-website/edit/main/_data/albums.yml) |
+| Upload a new gallery album | [Open the private photo archive](https://github.com/mn579/snrc-photo-archive/releases) |
+| Read the gallery upload directions | [Open the archive instructions](https://github.com/mn579/snrc-photo-archive#upload-an-album) |
 | Upload an officer headshot | [Upload officer photos](https://github.com/mn579/snrc-website/upload/main/assets/images/officers) |
 | Add or update an officer | [Edit officer profiles](https://github.com/mn579/snrc-website/edit/main/_data/officers.yml) |
 | Add or update a calendar event | [Edit the event calendar](https://github.com/mn579/snrc-website/edit/main/_data/calendar.yml) |
@@ -24,43 +24,27 @@ You can complete every routine website update in your browser. You do **not** ne
 
 ## The only GitHub button you need to know
 
-After editing a data file or uploading photos, select the green **Commit changes** button. For this website, **Commit changes means save and publish**.
+After editing a data file, select the green **Commit changes** button. For this website, **Commit changes means save and publish**.
 
 Use a short description such as `Add October cleanup event` or `Upload picnic photos`. Leave the other options at their defaults and confirm the commit. The website normally updates within a few minutes.
 
 ## Quick photo instructions
 
-### Add photos to an existing album
+Gallery originals now belong in the private photo archive—not directly in this website repository.
 
-1. Open [the gallery folders](https://github.com/mn579/snrc-website/tree/main/assets/images/gallery).
-2. Select the folder for the event.
-3. Select **Add file → Upload files**.
-4. Drag the photos onto the page.
-5. Select **Commit changes**.
+1. Put one event's original photographs in a folder and create a ZIP of that folder.
+2. Open the private archive's [Releases page](https://github.com/mn579/snrc-photo-archive/releases).
+3. Select **Draft a new release**.
+4. Create a tag such as `2027-04-22--earth-day-cleanup`.
+5. Enter the normal album title, attach exactly one ZIP, and select **Publish release**.
 
-The website finds the new photos automatically. An automated workflow also reduces oversized JPG, PNG, and WebP files after upload; you do not need to resize ordinary phone photos first.
-
-### Create a new album
-
-1. On your computer, place the event photos in one folder. Name it with the year and event using lowercase letters and hyphens, such as `2027-fall-creek-cleanup`.
-2. Open [the gallery folders](https://github.com/mn579/snrc-website/tree/main/assets/images/gallery), select **Add file → Upload files**, and drag the complete folder onto the upload page.
-3. Select **Commit changes**.
-4. Open [album information](https://github.com/mn579/snrc-website/edit/main/_data/albums.yml).
-5. Copy an existing album entry and replace its name, year, and path. The path must exactly match the uploaded folder name:
-
-   ```yaml
-   - name: Fall Creek Cleanup
-     year: 2027
-     path: 2027-fall-creek-cleanup
-   ```
-
-6. Select **Commit changes** again.
+The archive preserves the original ZIP privately. Its automation creates smaller website copies, adds the Gallery card and deploys the updated site. Do not upload gallery originals directly to `assets/images/gallery`.
 
 For field-by-field examples and troubleshooting, use the [complete editing guide](HOW_TO_UPDATE_THE_WEBSITE.md).
 
 ## Please do not edit these folders
 
-Routine editors should stay within `_data`, `assets/images/gallery`, and `assets/images/officers`. The following locations control the website's design and behavior:
+Routine editors should stay within `_data` and `assets/images/officers`. Gallery files are managed by the private archive automation. The following locations control the website's design and behavior:
 
 - `_includes`
 - `_layouts`
