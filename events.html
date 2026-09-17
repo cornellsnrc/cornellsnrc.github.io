@@ -24,11 +24,17 @@ permalink: /events/
   <div class="calendar-shell reveal">
     <div class="calendar-toolbar">
       <div><p class="eyebrow">Year at a glance</p><h2 class="calendar-year-title" data-calendar-year></h2></div>
-      <label class="calendar-year-control">Year
-        <select class="calendar-year-select" data-calendar-year-select aria-label="Choose calendar year">
-          <option value="all">All years</option>
-        </select>
-      </label>
+      <div class="calendar-year-tools">
+        <label class="calendar-year-control">Academic year
+          <select class="calendar-year-select" data-calendar-year-select aria-label="Choose academic year">
+            <option value="all">All years</option>
+          </select>
+        </label>
+        <div class="calendar-academic-toggle" data-calendar-academic-toggle aria-label="Browse academic years">
+          <button type="button" data-calendar-newer aria-label="Show newer academic year">←</button>
+          <button type="button" data-calendar-older aria-label="Show older academic year">→</button>
+        </div>
+      </div>
     </div>
     <div class="calendar-legend" data-calendar-legend aria-label="Event categories"></div>
     <div class="calendar-months" data-calendar-months></div>

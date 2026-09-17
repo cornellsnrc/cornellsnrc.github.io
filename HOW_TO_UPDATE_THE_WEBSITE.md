@@ -42,7 +42,7 @@ Enter only the filename from `assets/images/officers/`; the website adds the fol
 
 ## Add an event
 
-Open `_data/calendar.yml`, copy an event block, and replace the values. The site compares `date` with today's date, so it automatically chooses the next event and knows which events have passed. Do not update a status manually. Adding an event dated in a new year automatically adds that year to the calendar.
+Open `_data/calendar.yml`, copy an event block, and replace the values. The site compares `date` with today's date, so it automatically chooses the next event and knows which events have passed. Do not update a status manually. Events are grouped into August–July academic years, and each new academic year found in the event dates is added to the calendar selector automatically.
 
 ```yaml
 - title: Event Name
