@@ -1,6 +1,18 @@
 # How to update the SNRC website
 
-You can make every common update from GitHub's website. Open the file, click the pencil icon, make the change, and choose **Commit changes**. GitHub will rebuild the site automatically in a few minutes.
+You can make every common update from GitHub's website. You do not need Git, a terminal, or any programming software. Open the file, click the pencil icon, make the change, and choose **Commit changes**. For this website, think of **Commit changes** as **Save and publish**. GitHub will rebuild the site automatically in a few minutes.
+
+Return to the [editor dashboard](README.md) whenever you need a direct link to an editable file or upload folder.
+
+## Before you begin
+
+1. Sign in to the GitHub account that has access to this repository.
+2. Use the [editor dashboard](README.md) to open the item you want to change.
+3. Make one type of update at a time.
+4. Select **Commit changes**, enter a short description of the update, and confirm.
+5. Wait a few minutes, then check the published website. If it does not update, follow **If a deployment fails** below.
+
+GitHub keeps the earlier version whenever you commit, so an accidental edit can be reversed. Do not delete unfamiliar files while trying to fix a mistake.
 
 ## The files most people should edit
 
@@ -22,11 +34,12 @@ You normally do **not** need to edit anything in `_layouts`, `_includes`, `asset
 
 ## Add or update an officer
 
-1. Upload a portrait to `assets/images/officers/`.
-2. Open `_data/officers.yml`.
-3. Copy an existing officer block.
-4. Replace `name`, `role`, `image`, `bio`, and `email`.
-5. Commit the change.
+1. Open [`assets/images/officers/`](https://github.com/mn579/snrc-website/tree/main/assets/images/officers).
+2. Select **Add file → Upload files**, drag in the portrait, and commit it.
+3. Open [`_data/officers.yml`](https://github.com/mn579/snrc-website/edit/main/_data/officers.yml).
+4. Copy an existing officer block.
+5. Replace `name`, `role`, `image`, `bio`, and `email`.
+6. Commit the change.
 
 Example:
 
@@ -60,10 +73,22 @@ Choose a category key already listed at the top of `_data/calendar.yml`: `fieldw
 
 ## Add gallery photos
 
-1. Open `assets/images/gallery/` and create a folder named for the year and event, such as `2026-fall-creek-hike`.
-2. Upload that event's photos into the folder.
-3. Open `_data/albums.yml`, copy an album block, and set its `name`, `year`, and `path`. The `path` must exactly match the folder name.
-4. Commit the changes.
+### Add photos to an album that already exists
+
+1. Open [`assets/images/gallery/`](https://github.com/mn579/snrc-website/tree/main/assets/images/gallery).
+2. Open the event's folder.
+3. Select **Add file → Upload files**.
+4. Drag all of the new photos onto the page and commit the upload.
+
+The photos will appear automatically. The image optimizer will resize and compress oversized JPG, PNG, and WebP files after upload, so ordinary phone photos do not need to be resized manually. The optimizer does not touch the original brand artwork.
+
+### Create a new album
+
+1. On your computer, put the event photos in a folder named for the year and event, such as `2027-fall-creek-hike`. Use lowercase letters, numbers, and hyphens.
+2. Open [`assets/images/gallery/`](https://github.com/mn579/snrc-website/tree/main/assets/images/gallery), select **Add file → Upload files**, and drag the complete folder onto the page.
+3. Commit the upload.
+4. Open [`_data/albums.yml`](https://github.com/mn579/snrc-website/edit/main/_data/albums.yml), copy an album block, and set its `name`, `year`, and `path`. The `path` must exactly match the folder name.
+5. Commit the album information.
 
 The album data controls its card and sorting, while supported image files inside the matching folder are found automatically. Numeric years populate the Gallery year filter, and albums appear newest-first. Descriptive filenames create better image descriptions for accessibility.
 
@@ -128,6 +153,8 @@ The text between `---` lines at the top is page metadata used for page titles, d
 3. Open the failed step to read the error.
 4. Check the most recently edited YAML file first. Spacing matters in YAML; each nested line should use spaces, not tabs.
 5. Fix the file and commit again.
+
+If the separate **Optimize website images** Action fails, the website can still publish. The most common cause is a photo format that the optimizer cannot read. Remove that file or convert it to JPG, PNG, or WebP, then upload it again.
 
 ## Configure a custom domain later
 
