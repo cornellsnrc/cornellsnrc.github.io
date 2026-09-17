@@ -15,15 +15,15 @@ records:
     period: September 2026
     category: community
     description: SNRC opened the 2026–27 year with a picnic, club introduction, and community gathering at the Cornell Botanic Gardens.
-    partner: Cornell Botanic Gardens
+    partner: ""
     link: ""
 
   - title: TerraCycle Campus Recycling
     year: Ongoing
-    period: Ongoing initiative
+    period: Annual initiative
     category: waste_reduction
     description: SNRC collects, sorts, and manages hard-to-recycle materials so items such as pens, coffee capsules, shaving handles, plastic gloves, and cosmetic tubes can be diverted from landfills.
-    partner: TerraCycle
+    partner: ""
     link: ""
 
   - title: Green Up Cornell & Gorge Cleanups
@@ -38,12 +38,12 @@ records:
     year: Ongoing
     period: Seasonal partnership
     category: wildlife
-    description: SNRC works with the Tompkins County Amphibian Migration Patrol to support local amphibians during their seasonal movement to breeding habitat.
+    description: SNRC works with the Tompkins County Amphibian Migration Patrol (TCAMP) to support local amphibians during their seasonal movement to breeding habitat.
     partner: TCAMP
     link: ""
 
   - title: Love at First Upcycle
-    year: Legacy
+    year: 2026
     period: Valentine's Day
     category: upcycling
     description: A creative reuse event that made discarded materials useful again while giving members a social way to practice waste reduction.
@@ -51,7 +51,7 @@ records:
     link: ""
 
   - title: Earth Day Action & Socials
-    year: Legacy
+    year: Ongoing
     period: Annual initiative
     category: advocacy
     description: Earth Day programming combines environmental awareness and action with opportunities for Cornell students to connect around shared responsibility.
@@ -59,15 +59,15 @@ records:
     link: ""
 
   - title: Tree Planting
-    year: Ongoing
+    year: 2026
     period: Recurring fieldwork
     category: fieldwork
     description: Hands-on ecological work that allows members to contribute directly to healthier shared landscapes and long-term local restoration.
-    partner: ""
+    partner: Cornell Botanic Gardens
     link: ""
 
   - title: Spooky Succulent Upcycling
-    year: Legacy
+    year: 2026
     period: Halloween
     category: community
     description: Members transformed terracotta pots into pumpkin-inspired succulent planters, pairing seasonal community-building with creative reuse.
