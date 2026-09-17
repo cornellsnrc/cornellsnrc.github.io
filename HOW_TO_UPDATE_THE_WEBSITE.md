@@ -23,7 +23,7 @@ GitHub keeps the earlier version whenever you commit, so an accidental edit can 
 | Executive-board profiles | `_data/officers.yml` |
 | Yearly calendar and event categories | `_data/calendar.yml` |
 | Historical initiatives and memorable events | `_data/archive.yml` |
-| Gallery album names, years, and folders | `_data/albums.yml` |
+| Gallery albums and original photos | Private `snrc-photo-archive` Releases |
 | Program areas on the home page | `_data/programs.yml` |
 | Overlapping home-page photos | `_data/home.yml` |
 | Resource links | `_data/resources.yml` |
@@ -73,30 +73,19 @@ Choose a category key already listed at the top of `_data/calendar.yml`: `fieldw
 
 ## Add gallery photos
 
-### Add photos to an album that already exists
+Gallery albums are uploaded through the private [`snrc-photo-archive`](https://github.com/mn579/snrc-photo-archive), not this website repository.
 
-1. Open [`assets/images/gallery/`](https://github.com/mn579/snrc-website/tree/main/assets/images/gallery).
-2. Open the event's folder.
-3. Select **Add file → Upload files**.
-4. Drag all of the new photos onto the page and commit the upload.
+1. Put one event's original photographs into a folder on your computer.
+2. Create a ZIP of that folder. On a Mac, Control-click it and select **Compress**. On Windows, right-click it and select **Compress to ZIP file**.
+3. Open the archive's [Releases page](https://github.com/mn579/snrc-photo-archive/releases) and select **Draft a new release**.
+4. Create a tag using the event date, two hyphens, and a short lowercase name: `2027-04-22--earth-day-cleanup`.
+5. Enter the album's normal name under **Release title**.
+6. Attach exactly one ZIP file.
+7. Select **Publish release**.
 
-The photos will appear automatically. The image optimizer will resize and compress oversized JPG, PNG, and WebP files after upload, so ordinary phone photos do not need to be resized manually. The optimizer does not touch the original brand artwork.
+The automation preserves the original ZIP privately, converts HEIC files when needed, generates optimized website copies, adds the album information, and republishes the Gallery. Check the archive repository's **Actions** page for a green check before considering the upload complete.
 
-### Create a new album
-
-1. On your computer, put the event photos in a folder named for the year and event, such as `2027-fall-creek-hike`. Use lowercase letters, numbers, and hyphens.
-2. Open [`assets/images/gallery/`](https://github.com/mn579/snrc-website/tree/main/assets/images/gallery), select **Add file → Upload files**, and drag the complete folder onto the page.
-3. Commit the upload.
-4. Open [`_data/albums.yml`](https://github.com/mn579/snrc-website/edit/main/_data/albums.yml), copy an album block, and set its `name`, `year`, and `path`. The `path` must exactly match the folder name.
-5. Commit the album information.
-
-The album data controls its card and sorting, while supported image files inside the matching folder are found automatically. Numeric years populate the Gallery year filter, and albums appear newest-first. Descriptive filenames create better image descriptions for accessibility.
-
-```yaml
-- name: Fall Creek Hike
-  year: 2027
-  path: 2027-fall-creek-hike
-```
+Do not upload gallery originals directly to `assets/images/gallery/`. Doing so stores the large originals in the public website's permanent Git history.
 
 To feature a gallery image in the overlapping home-page collage, open `_data/home.yml` and replace an existing `image`, `alt`, and `caption`. Enter the image as `album-folder/photo-name.jpg`; do not include `/assets/images/gallery/`. Keep the four `position` values—`back`, `right`, `left`, and `front`—so the photos retain their layered arrangement.
 
