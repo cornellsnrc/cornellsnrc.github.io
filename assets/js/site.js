@@ -270,10 +270,16 @@ if (calendarRoot) {
   const monthsNode = calendarRoot.querySelector('[data-calendar-months]');
   const legendNode = calendarRoot.querySelector('[data-calendar-legend]');
   const yearSelect = calendarRoot.querySelector('[data-calendar-year-select]');
-  const eventYears = events.map((event) => parseDate(event.date).getFullYear());
-  const years = [...new Set(eventYears)].sort((a, b) => b - a);
+  const academicToggle = calendarRoot.querySelector('[data-calendar-academic-toggle]');
+  const newerButton = calendarRoot.querySelector('[data-calendar-newer]');
+  const olderButton = calendarRoot.querySelector('[data-calendar-older]');
+  const academicStart = (date) => date.getMonth() >= 7 ? date.getFullYear() : date.getFullYear() - 1;
+  const academicYears = [...new Set(events.map((event) => academicStart(parseDate(event.date))))].sort((a, b) => b - a);
+  const currentAcademicYear = academicStart(today);
+  let allYearsIndex = Math.max(0, academicYears.indexOf(currentAcademicYear));
   const weekdays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   const monthNames = Array.from({ length: 12 }, (_, month) => formatDate(new Date(2024, month, 1), { month: 'long' }));
+  const academicYearLabel = (startYear) => `${startYear}–${String(startYear + 1).slice(-2)}`;
 
   Object.entries(categories).forEach(([key, category]) => {
     const item = document.createElement('span');
@@ -306,27 +312,23 @@ if (calendarRoot) {
     dialog.showModal();
   };
 
-  years.forEach((year) => {
+  academicYears.forEach((year) => {
     const option = document.createElement('option');
     option.value = String(year);
-    option.textContent = year;
+    option.textContent = academicYearLabel(year);
     yearSelect.append(option);
   });
 
-  const renderYear = (year) => {
+  const renderAcademicYear = (startYear) => {
     const yearGroup = document.createElement('section');
     yearGroup.className = 'calendar-year-group';
-    if (yearSelect.value === 'all' && years.length > 1) {
-      const heading = document.createElement('h3');
-      heading.className = 'calendar-year-divider';
-      heading.textContent = year;
-      yearGroup.append(heading);
-    }
     const monthGrid = document.createElement('div');
     monthGrid.className = 'calendar-month-grid';
-    monthNames.forEach((monthName, month) => {
+    const academicMonths = [7, 8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6];
+    academicMonths.forEach((month) => {
+      const year = month >= 7 ? startYear : startYear + 1;
       const monthElement = document.createElement('section'); monthElement.className = 'calendar-month';
-      const title = document.createElement('h3'); title.textContent = monthName;
+      const title = document.createElement('h3'); title.textContent = monthNames[month];
       const days = document.createElement('div'); days.className = 'calendar-days';
       weekdays.forEach((weekday) => { const label = document.createElement('span'); label.className = 'calendar-weekday'; label.textContent = weekday; days.append(label); });
       const firstDay = new Date(year, month, 1).getDay();
@@ -355,21 +357,33 @@ if (calendarRoot) {
 
   const renderCalendar = () => {
     monthsNode.replaceChildren();
-    if (!years.length) {
+    if (!academicYears.length) {
       yearNode.textContent = 'No dates yet';
       yearSelect.disabled = true;
+      academicToggle.hidden = true;
       return;
     }
     if (yearSelect.value === 'all') {
-      yearNode.textContent = 'All years';
-      years.forEach(renderYear);
+      allYearsIndex = Math.min(allYearsIndex, academicYears.length - 1);
+      const selectedAcademicYear = academicYears[allYearsIndex];
+      yearNode.textContent = academicYearLabel(selectedAcademicYear);
+      academicToggle.hidden = academicYears.length < 2;
+      newerButton.disabled = allYearsIndex === 0;
+      olderButton.disabled = allYearsIndex === academicYears.length - 1;
+      renderAcademicYear(selectedAcademicYear);
     } else {
       const selectedYear = Number(yearSelect.value);
-      yearNode.textContent = selectedYear;
-      renderYear(selectedYear);
+      yearNode.textContent = academicYearLabel(selectedYear);
+      academicToggle.hidden = true;
+      renderAcademicYear(selectedYear);
     }
   };
-  yearSelect.addEventListener('change', renderCalendar);
+  yearSelect.addEventListener('change', () => {
+    if (yearSelect.value === 'all') allYearsIndex = Math.max(0, academicYears.indexOf(currentAcademicYear));
+    renderCalendar();
+  });
+  newerButton.addEventListener('click', () => { if (allYearsIndex > 0) { allYearsIndex -= 1; renderCalendar(); } });
+  olderButton.addEventListener('click', () => { if (allYearsIndex < academicYears.length - 1) { allYearsIndex += 1; renderCalendar(); } });
   document.querySelector('[data-calendar-close]')?.addEventListener('click', () => dialog.close());
   dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
   renderCalendar();
