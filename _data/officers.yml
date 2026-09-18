@@ -1,0 +1,45 @@
+# EDIT THIS FILE to add, remove, or reorder officer cards.
+# Put headshots in assets/images/officers/ and enter only the photo filename.
+# IMAGE FORMAT: first-last.jpg, or "" for the initial placeholder.
+- name: Kyle O'Connor
+  role: President
+  image: ""
+  bio: Kyle is a senior in Dyson studying Finance and Business Analytics, minoring in Health Policy. He loves animals, especially his cat Coco (as featured above). In his free time, he loves playing pickup basketball or any other sport is being played. He is excited to bring his energy to every SNRC event and do his part in conserving the environment for a healthy world.
+  email: kmo87@cornell.edu
+
+- name: Emily Spans
+  role: Vice President
+  image: ""
+  bio: Emily is a senior studying History, minoring in European Studies. She is excited about all the fun events and outreach opportunities that SNRC will offer for the coming year. In her free time, she enjoys exploring along trails around Cornell's campus and appreciating the scenery Ithaca offers. Her favorite place is Cayuga Lake. 
+  email: ecs298@cornell.edu
+
+- name: Michael Neiss
+  role: Treasurer
+  image: ""
+  bio: Michael is a senior in the College of Engineering studying Electrical and Computer Engineering. He is interested in exploring how engineering can intersect with biology, ecology, and environmental conservation, particularly through technologies that help us better understand and protect natural systems. Outside of class, Michael is an avid backpacker who has hiked portions of the Appalachian Trail through Connecticut, Massachusetts, Vermont, and New Hampshire, and hopes to one day thru-hike the entire trail.
+  email: mn579@cornell.edu
+
+- name: Rowan Martin
+  role: Public Relations Coordinator
+  image: ""
+  bio: Rowan is a junior in the College of Arts and Sciences studying environmental biology and minoring in film. They are passionate about aquatic ecosystems and spent the past summer learning about them, from the ponds of the Adirondacks to the marine mammals of Gulf of Maine. You can spot Rowan around campus, staring at chipmunks and nerding out about movies.
+  email: rsm288@cornell.edu
+
+- name: Cora McCabe
+  role: Outdoor Initiatives Coordinator
+  image: ""
+  bio: Cora is a Food Science major in CALS! Outside of class, you'll usually find her playing club ultimate frisbee. Cora is also working with Plastic Free Cornell to phase out single-use plastics on campus. As the OIC for SNRC, she is excited to organize more gorge cleanups and strengthen native plant and animal populations!
+  email: csm292@cornell.edu
+
+- name: Nia Delardi
+  role: TerraCycle Coordinator
+  image: ""
+  bio: Nia is a sophomore in CALS studying Biological Science with a concentration in Ecology and Evolutionary Biology. She is interested in population ecology, as well as evolutionary genetics in the context of climate change. She is also pursuing a minor in Marine Biology, intending to earn a PhD in Marine Ecology or similar. She is active on campus, and is part of the Biology Scholars Program and Running Club as well as working as a researcher in the Benning Lab in the Department of Ecology & Evolutionary Biology.
+  email: nmd78@cornell.edu
+
+# Copy this block, remove the leading # marks, and replace the values:
+# - name: Full Name
+#   role: Position
+#   image: first-last.jpg
+#   bio: One or two concise sentences about the officer.
+#   email: optional-email@cornell.edu

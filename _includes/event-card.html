@@ -1,0 +1,13 @@
+<article class="event-card reveal">
+  <div class="event-date">
+    <span class="event-month">{{ include.event.date | date: '%b' }}</span>
+    <span class="event-day">{{ include.event.date | date: '%-d' }}</span>
+    <span class="event-year">{{ include.event.date | date: '%Y' }}</span>
+  </div>
+  <div class="event-details">
+    <p class="event-meta">{{ include.event.time }} · {{ include.event.location }}</p>
+    <h3>{{ include.event.title }}</h3>
+    <p>{{ include.event.description }}</p>
+    {% if include.event.link != empty %}<a class="text-link" href="{{ include.event.link }}" target="_blank" rel="noopener">Event details <span aria-hidden="true">↗</span></a>{% endif %}
+  </div>
+</article>

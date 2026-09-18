@@ -1,0 +1,30 @@
+---
+title: Gallery
+page_id: gallery
+description: Photos from Cornell SNRC conservation projects, service, workshops, collaborations, and community events.
+permalink: /gallery/
+---
+
+<section class="page-hero content-width reveal">
+  <p class="eyebrow">Gallery</p>
+  <h1>Conservation work—and the community behind it.</h1>
+  <p>Photos from fieldwork, service projects, workshops, collaborations, and gatherings across campus and the surrounding community.</p>
+</section>
+
+<section class="section content-width" data-gallery-albums data-album-base="{{ '/gallery/album/' | relative_url }}">
+  {% include gallery-data.html %}
+  <div class="gallery-album-toolbar reveal">
+    <p class="gallery-album-status" data-gallery-album-status aria-live="polite"></p>
+    <label class="gallery-year-control">Year
+      <select class="gallery-year-select" data-gallery-year-filter aria-label="Filter gallery albums by year">
+        <option value="all">All years</option>
+      </select>
+    </label>
+  </div>
+  <div class="gallery-album-grid" data-gallery-album-grid></div>
+  <div class="empty-state reveal" data-gallery-empty hidden>
+    <p class="eyebrow">A new collection</p>
+    <h2>Albums will appear here soon.</h2>
+    <p>New albums are published from SNRC’s private photo archive after their original files are safely stored.</p>
+  </div>
+</section>

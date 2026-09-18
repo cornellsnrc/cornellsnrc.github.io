@@ -1,0 +1,158 @@
+# How to update the SNRC website
+
+You can make every common update from GitHub's website. You do not need Git, a terminal, or any programming software. Open the file, click the pencil icon, make the change, and choose **Commit changes**. For this website, think of **Commit changes** as **Save and publish**. GitHub will rebuild the site automatically in a few minutes.
+
+Return to the [editor dashboard](README.md) whenever you need a direct link to an editable file or upload folder.
+
+## Before you begin
+
+1. Sign in to the GitHub account that has access to this repository.
+2. Use the [editor dashboard](README.md) to open the item you want to change.
+3. Make one type of update at a time.
+4. Select **Commit changes**, enter a short description of the update, and confirm.
+5. Wait a few minutes, then check the published website. If it does not update, follow **If a deployment fails** below.
+
+GitHub keeps the earlier version whenever you commit, so an accidental edit can be reversed. Do not delete unfamiliar files while trying to fix a mistake.
+
+Before publishing, the website checks YAML formatting, required fields, dates, categories, links, duplicate records, image references, album folders, and image-storage rules. A failed validation leaves the existing website online and identifies the exact record that needs attention.
+
+## The files most people should edit
+
+| What you want to change | File or folder |
+| --- | --- |
+| Organization description, email, and social links | `_data/site.yml` |
+| Navigation links | `_data/navigation.yml` |
+| Executive-board profiles | `_data/officers.yml` |
+| Yearly calendar and event categories | `_data/calendar.yml` |
+| Historical initiatives and memorable events | `_data/archive.yml` |
+| Gallery albums and original photos | Private `snrc-photo-archive` Releases |
+| Program areas on the home page | `_data/programs.yml` |
+| Overlapping home-page photos | `_data/home.yml` and `assets/images/branding/home/` |
+| Resource links | `_data/resources.yml` |
+| Officer photos | `assets/images/officers/` |
+| Gallery photos | Private `snrc-photo-archive` Releases; never upload them here manually |
+
+You normally do **not** need to edit anything in `_layouts`, `_includes`, `assets/css`, or `assets/js`. Those folders contain the site structure, reusable header/footer, styling, and behavior.
+
+## Add or update an officer
+
+1. Open [`assets/images/officers/`](https://github.com/mn579/snrc-website/tree/main/assets/images/officers).
+2. Select **Add file → Upload files**, drag in the portrait, and commit it.
+3. Open [`_data/officers.yml`](https://github.com/mn579/snrc-website/edit/main/_data/officers.yml).
+4. Copy an existing officer block.
+5. Replace `name`, `role`, `image`, `bio`, and `email`.
+6. Commit the change.
+
+Example:
+
+```yaml
+- name: Full Name
+  role: President
+  image: full-name.jpg
+  bio: A concise one- or two-sentence biography.
+  email: netid@cornell.edu
+```
+
+Enter only the filename from `assets/images/officers/`; the website adds the folder automatically. If no headshot is ready, use `image: ""`. The site will show the person's initial instead.
+
+## Add an event
+
+Open `_data/calendar.yml`, copy an event block, and replace the values. The site compares `date` with today's date, so it automatically chooses the next event and knows which events have passed. Do not update a status manually. Events are grouped into August–July academic years, and each new academic year found in the event dates is added to the calendar selector automatically.
+
+```yaml
+- title: Event Name
+  date: 2026-10-01
+  time: 5:00–6:00 p.m.
+  location: Location
+  category: fieldwork
+  description: A short description that helps someone decide to attend.
+  link: https://cornell.campusgroups.com/...
+```
+
+Leave `link: ""` blank if there is no registration or information page.
+
+Choose a category key already listed at the top of `_data/calendar.yml`: `fieldwork`, `service`, `advocacy`, `education`, `community`, or `eboard`. To add or recolor a category, edit the `categories` list in that same file. Its label and color appear everywhere automatically.
+
+## Add gallery photos
+
+Gallery albums are uploaded through the private [`snrc-photo-archive`](https://github.com/mn579/snrc-photo-archive), not this website repository.
+
+1. Put one event's original photographs into a folder on your computer.
+2. Create a ZIP of that folder. On a Mac, Control-click it and select **Compress**. On Windows, right-click it and select **Compress to ZIP file**.
+3. Open the archive's [Releases page](https://github.com/mn579/snrc-photo-archive/releases) and select **Draft a new release**.
+4. Create a tag using the event date, two hyphens, and a short lowercase name: `2027-04-22--earth-day-cleanup`.
+5. Enter the album's normal name under **Release title**.
+6. Attach exactly one ZIP file.
+7. Select **Publish release**.
+
+The automation preserves the original ZIP privately, converts HEIC files when needed, generates optimized website copies, adds the album information, and republishes the Gallery. Check the archive repository's **Actions** page for a green check before considering the upload complete.
+
+Do not upload gallery originals directly to `assets/images/gallery/`. That folder contains only optimized display copies generated by the archive automation. Manual uploads store large originals in the public website's permanent Git history and bypass the private archive.
+
+To change an overlapping home-page collage image, upload its permanent website copy to `assets/images/branding/home/`. Then open `_data/home.yml` and replace an existing `image`, `alt`, and `caption`. Enter only the filename. Keep the four `position` values—`back`, `right`, `left`, and `front`—so the photos retain their layered arrangement. Do not reference a Gallery album image here because albums may later be removed from the public Gallery.
+
+## Add something to the SNRC Archive
+
+Open `_data/archive.yml`, copy one complete record, paste it at the top of the `records` list, and replace its values:
+
+```yaml
+- title: Initiative or Event Name
+  year: 2026
+  period: October 2026
+  category: fieldwork
+  description: What SNRC did, why it mattered, and any useful result.
+  partner: Partner Organization
+  link: ""
+```
+
+Use a date, season, academic year, or phrase such as `Ongoing initiative` for `period`. Set `year` to a four-digit year, `Ongoing`, or `Legacy`; numeric years are automatically added to the newest-first year dropdown, while ongoing and legacy records remain available under `All years`. Set `category` to one of the category keys defined at the top of `_data/archive.yml`.
+
+Archive categories work like calendar categories. Add or edit a key, visible label, and card/filter color in the `categories` section:
+
+```yaml
+categories:
+  fieldwork: { label: "Fieldwork", color: "#286247" }
+```
+
+Leave `partner` or `link` as `""` when they do not apply. The Archive page creates, colors, filters, and positions the card automatically.
+
+## Change page wording
+
+The visible page files are in the repository root:
+
+- `index.html` — home page
+- `about.html` — about and executive board
+- `events.html` — upcoming and past events
+- `archive.html` — data-driven history of initiatives and events
+- `gallery.html` — automatic photo gallery
+- `resources.html` — resource links
+- `contact.html` — contact and collaboration
+
+The text between `---` lines at the top is page metadata used for page titles, descriptions, and search results.
+
+## Change the design
+
+- `_layouts/default.html` provides the shared page shell and metadata.
+- `_includes/header.html` and `_includes/footer.html` are the reusable site-wide components.
+- `assets/css/main.css` contains all colors, typography, spacing, and responsive styles.
+- `assets/js/site.js` contains the mobile menu, gentle reveal effects, and gallery lightbox.
+
+## If a deployment fails
+
+1. Open the repository's **Actions** tab.
+2. Select the latest **Deploy SNRC website** run.
+3. If **Validate editor content** failed, open it and read the message naming the file and record to correct.
+4. Check the most recently edited YAML file first. Spacing matters in YAML; each nested line should use spaces, not tabs.
+5. Fix the named problem and commit again. Validation will rerun automatically.
+
+If the separate **Optimize website images** Action fails, the website can still publish. The most common cause is a photo format that the optimizer cannot read. Remove that file or convert it to JPG, PNG, or WebP, then upload it again.
+
+## Configure a custom domain later
+
+1. Buy or use the desired domain.
+2. In the repository, open **Settings → Pages**.
+3. Enter the domain under **Custom domain**.
+4. Follow GitHub's displayed DNS instructions.
+5. Update `url` in `_config.yml` to the full custom-domain URL and set `baseurl: ""`.
+
+Do not add a `CNAME` file until the domain and DNS records are ready.

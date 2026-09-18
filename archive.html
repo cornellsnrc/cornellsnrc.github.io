@@ -1,0 +1,70 @@
+---
+title: SNRC Archive
+page_id: archive
+description: Explore Cornell SNRC's history of conservation projects, advocacy, fieldwork, service, partnerships, workshops, and community events.
+permalink: /archive/
+---
+
+<section class="page-hero content-width reveal archive-hero">
+  <p class="eyebrow">SNRC Archive</p>
+  <h1>A growing record of action, service, and community.</h1>
+  <p>SNRC is one of Cornell’s oldest environmental clubs. This archive preserves the initiatives, partnerships, field projects, and memorable events that show how generations of members have put conservation into practice.</p>
+</section>
+
+<section class="section archive-section">
+  <div class="content-width">
+    <script type="application/json" data-archive-categories>{{ site.data.archive.categories | jsonify }}</script>
+    <div class="archive-heading reveal">
+      <div>
+        <p class="eyebrow">Our work over time</p>
+        <h2>Projects worth carrying forward</h2>
+      </div>
+      <p>Browse the record below. New entries appear automatically as SNRC’s work continues.</p>
+    </div>
+
+    <div class="archive-filters reveal" aria-label="Filter archive records">
+      <div class="archive-filter-group">
+        <span class="archive-filter-label">Category</span>
+        <div class="archive-filter-options" data-archive-category-filters></div>
+      </div>
+      <div class="archive-filter-group">
+        <span class="archive-filter-label">Year</span>
+        <select class="archive-year-select" data-archive-year-filter aria-label="Filter archive by year">
+          <option value="All">All years</option>
+        </select>
+      </div>
+    </div>
+    <p class="archive-status" data-archive-status aria-live="polite">{{ site.data.archive.records.size }} archive records</p>
+    <div class="archive-grid" data-archive-grid data-page-size="12" aria-label="SNRC activities and initiatives">
+      {% for item in site.data.archive.records %}
+        {% assign archive_category = site.data.archive.categories[item.category] %}
+        <article class="archive-card reveal" data-archive-card data-category="{{ item.category | escape }}" data-year="{{ item.year | default: 'Legacy' }}">
+          <div class="archive-card-topline">
+            <span>{{ item.period }}</span>
+            <span class="archive-category-tag">{{ archive_category.label | default: item.category }}</span>
+          </div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          {% if item.partner != empty %}<p class="archive-partner"><strong>Partner:</strong> {{ item.partner }}</p>{% endif %}
+          {% if item.link != empty %}<a class="text-link" href="{{ item.link }}" target="_blank" rel="noopener">Learn more <span aria-hidden="true">↗</span></a>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+    <div class="archive-more">
+      <button class="button" type="button" data-archive-more hidden><span data-archive-more-label>Show more records</span> <span aria-hidden="true">↓</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="content-width archive-callout reveal">
+    <div>
+      <p class="eyebrow">Help preserve the record</p>
+      <h2>Have photos or details from an earlier SNRC project?</h2>
+    </div>
+    <div>
+      <p>Past members and partners can help us document the people, work, and outcomes that shaped SNRC.</p>
+      <a class="button" href="mailto:{{ site.data.site.organization.email }}?subject=SNRC%20Archive%20Contribution">Contribute to the archive <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>

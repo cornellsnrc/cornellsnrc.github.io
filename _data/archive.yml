@@ -1,0 +1,75 @@
+# EDIT THIS FILE to manage archive categories and records.
+# Category colors automatically control the card accents and filter buttons.
+categories:
+  community: { label: "Community", color: "#A47A24" }
+  waste_reduction: { label: "Waste Reduction", color: "#B46A3C" }
+  fieldwork: { label: "Fieldwork", color: "#286247" }
+  wildlife: { label: "Wildlife", color: "#4E7182" }
+  upcycling: { label: "Upcycling", color: "#8A5D7B" }
+  advocacy: { label: "Advocacy", color: "#785C78" }
+
+# Newest records should go at the top. Use a category key defined above.
+records:
+  - title: Fall Picnic & Welcome
+    year: 2026
+    period: September 2026
+    category: community
+    description: SNRC opened the 2026–27 year with a picnic, club introduction, and community gathering at the Cornell Botanic Gardens.
+    partner: ""
+    link: ""
+
+  - title: TerraCycle Campus Recycling
+    year: Ongoing
+    period: Annual initiative
+    category: waste_reduction
+    description: SNRC collects, sorts, and manages hard-to-recycle materials so items such as pens, coffee capsules, shaving handles, plastic gloves, and cosmetic tubes can be diverted from landfills.
+    partner: ""
+    link: ""
+
+  - title: Green Up Cornell & Gorge Cleanups
+    year: Ongoing
+    period: Annual initiative
+    category: fieldwork
+    description: A spring community-service effort focused on removing litter and invasive species, teaching safe identification and removal, and caring for campus and local gorge spaces.
+    partner: Cornell Botanic Gardens / Adopt-a-Gorge
+    link: ""
+
+  - title: Amphibian Migration Patrol
+    year: Ongoing
+    period: Seasonal partnership
+    category: wildlife
+    description: SNRC works with the Tompkins County Amphibian Migration Patrol (TCAMP) to support local amphibians during their seasonal movement to breeding habitat.
+    partner: TCAMP
+    link: ""
+
+  - title: Love at First Upcycle
+    year: 2026
+    period: Valentine's Day
+    category: upcycling
+    description: A creative reuse event that made discarded materials useful again while giving members a social way to practice waste reduction.
+    partner: ""
+    link: ""
+
+  - title: Earth Day Action & Socials
+    year: Ongoing
+    period: Annual initiative
+    category: advocacy
+    description: Earth Day programming combines environmental awareness and action with opportunities for Cornell students to connect around shared responsibility.
+    partner: ""
+    link: ""
+
+  - title: Tree Planting
+    year: 2026
+    period: Recurring fieldwork
+    category: fieldwork
+    description: Hands-on ecological work that allows members to contribute directly to healthier shared landscapes and long-term local restoration.
+    partner: Cornell Botanic Gardens
+    link: ""
+
+  - title: Spooky Succulent Upcycling
+    year: 2026
+    period: Halloween
+    category: community
+    description: Members transformed terracotta pots into pumpkin-inspired succulent planters, pairing seasonal community-building with creative reuse.
+    partner: Horticulture Forum
+    link: ""

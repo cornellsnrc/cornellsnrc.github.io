@@ -1,0 +1,28 @@
+---
+title: Photo Album
+page_id: gallery
+description: Browse photos from Cornell SNRC projects, fieldwork, service, partnerships, and community events.
+permalink: /gallery/album/
+---
+
+<section class="page-hero content-width reveal gallery-album-hero">
+  <a class="text-link gallery-back-link" href="{{ '/gallery/' | relative_url }}">← All albums</a>
+  <p class="eyebrow">SNRC Gallery</p>
+  <h1 data-album-title>Photo album</h1>
+  <p data-album-count></p>
+</section>
+
+<section class="section content-width" data-gallery-album>
+  {% include gallery-data.html %}
+  <div class="gallery-grid" data-gallery-photo-grid></div>
+  <div class="empty-state" data-album-empty hidden>
+    <h2>We couldn’t find this album.</h2>
+    <p>It may have been renamed or moved.</p>
+    <a class="button" href="{{ '/gallery/' | relative_url }}">Return to all albums</a>
+  </div>
+</section>
+
+<dialog class="lightbox" data-lightbox>
+  <button type="button" class="lightbox-close" aria-label="Close image" data-lightbox-close>×</button>
+  <img src="" alt="" data-lightbox-image>
+</dialog>

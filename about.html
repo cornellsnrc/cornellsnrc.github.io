@@ -1,0 +1,60 @@
+---
+title: About
+page_id: about
+description: Learn about Cornell SNRC's mission, environmental work, goals, and student leadership.
+permalink: /about/
+---
+
+<section class="page-hero content-width reveal">
+  <p class="eyebrow">About SNRC</p>
+  <h1>Student-driven conservation with visible, lasting impact.</h1>
+  <p>One of Cornell’s oldest environmental clubs, SNRC connects environmental knowledge with action on campus and in the surrounding community.</p>
+</section>
+
+<section class="section content-width">
+  <div class="statement-panel reveal">
+    <p class="statement-kicker">Our mission</p>
+    <p class="statement-text statement-text-long">{{ site.data.site.organization.mission }}</p>
+  </div>
+</section>
+
+<section class="section content-width">
+  <div class="section-heading-row reveal">
+    <div><p class="eyebrow">Our goals</p><h2>Focused enough to deliver. Adaptable enough to respond.</h2></div>
+    <p>{{ site.data.site.organization.goals }}</p>
+  </div>
+  <div class="values-grid">
+    <article class="value-card reveal"><h3>Understand the challenge</h3><p>Use education, speakers, and informed dialogue to examine pressing conservation needs.</p></article>
+    <article class="value-card reveal"><h3>Build practical solutions</h3><p>Organize projects, partnerships, and systems that create tangible local results.</p></article>
+    <article class="value-card reveal"><h3>Act collectively</h3><p>Bring students across disciplines together for advocacy, service, and hands-on environmental work.</p></article>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="content-width">
+    <div class="section-heading-row reveal">
+      <div><p class="eyebrow">Student leadership</p><h2>Meet the executive board.</h2></div>
+      <p>Questions or collaboration ideas? Reach the team at <a href="mailto:{{ site.data.site.organization.email }}">{{ site.data.site.organization.email }}</a>.</p>
+    </div>
+    <div class="officer-grid">
+      {% for officer in site.data.officers %}
+        <article class="officer-card reveal">
+          <div class="officer-photo {% if officer.image == empty %}officer-photo-placeholder{% endif %}">
+            {% if officer.image != empty %}
+              {% assign officer_image_path = '/assets/images/officers/' | append: officer.image %}
+              <img src="{{ officer_image_path | relative_url }}" alt="{{ officer.name }}">
+            {% else %}
+              <span aria-hidden="true">{{ officer.name | slice: 0 }}</span>
+            {% endif %}
+          </div>
+          <div class="officer-content">
+            <p class="officer-role">{{ officer.role }}</p>
+            <h3>{{ officer.name }}</h3>
+            <p>{{ officer.bio }}</p>
+            {% if officer.email != empty %}<a class="text-link" href="mailto:{{ officer.email }}">Email {{ officer.name | split: ' ' | first }}</a>{% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

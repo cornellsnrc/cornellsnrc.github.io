@@ -1,0 +1,29 @@
+# EDIT THIS FILE to change the four areas of action shown on the home page.
+- season: Winter
+  title: Advocacy & Awareness
+  summary: Turn informed dialogue into public awareness and constructive advocacy on natural-resource issues.
+  topics:
+    - Double-A initiatives
+    - Policymaker engagement
+    - Speakers and campus events
+- season: Early Fall & Spring
+  title: LEAF Fieldwork
+  summary: Take direct ecological action through Local Ecology Action and Fieldwork projects on campus and nearby.
+  topics:
+    - Tree planting
+    - Invasive-species tracking
+    - Seasonal conservation work
+- season: All Year
+  title: Waste Reduction & Upcycling
+  summary: Reduce material waste through TerraCycle collection, creative reuse events, and practical campus systems.
+  topics:
+    - Hard-to-recycle materials
+    - Campus collection programs
+    - Upcycling events
+- season: All Year
+  title: Education, Service & Community
+  summary: Build shared knowledge and service through workshops, volunteer projects, speakers, and club collaborations.
+  topics:
+    - Gorge and campus cleanups
+    - Professional workshops
+    - Community partnerships
