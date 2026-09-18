@@ -1,8 +1,9 @@
 name: Deploy SNRC website
 
 on:
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ["Optimize website images"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -17,38 +18,55 @@ concurrency:
 jobs:
   validate:
     name: Validate editor content
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out latest prepared website
         uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Install YAML validator
         run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+
       - name: Validate content and image references
         run: python scripts/validate_content.py
 
   build:
+    name: Build website
     needs: validate
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out latest prepared website
         uses: actions/checkout@v4
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
-          destination: ./_site
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+          ref: main
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
   deploy:
+    name: Deploy website
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
