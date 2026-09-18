@@ -19,6 +19,7 @@ exclude:
   - README.md
   - assets/images/gallery/README.md
   - assets/images/officers/README.md
+  - assets/images/branding/README.md
   - vendor
 
 defaults:
