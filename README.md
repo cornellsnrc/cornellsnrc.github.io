@@ -28,6 +28,8 @@ After editing a data file, select the green **Commit changes** button. For this 
 
 Use a short description such as `Add October cleanup event` or `Upload picnic photos`. Leave the other options at their defaults and confirm the commit. The website normally updates within a few minutes.
 
+Every update is checked before publication. If **Validate editor content** shows a red X, open that step and follow its plain-language message. The previous website remains online while the invalid update is corrected.
+
 ## Quick photo instructions
 
 Gallery originals belong in the private photo archive—not directly in this website repository. The website receives only the optimized display copies created by the archive automation.
