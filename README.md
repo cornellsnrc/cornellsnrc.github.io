@@ -8,19 +8,19 @@ You can complete every routine website update in your browser. You do **not** ne
 
 | I want to… | Open this |
 | --- | --- |
-| Upload a new gallery album | [Open the private photo archive](https://github.com/mn579/snrc-photo-archive/releases) |
-| Read the gallery upload directions | [Open the archive instructions](https://github.com/mn579/snrc-photo-archive#upload-an-album) |
-| Upload an officer headshot | [Upload officer photos](https://github.com/mn579/snrc-website/upload/main/assets/images/officers) |
-| Add or update an officer | [Edit officer profiles](https://github.com/mn579/snrc-website/edit/main/_data/officers.yml) |
-| Add or update a calendar event | [Edit the event calendar](https://github.com/mn579/snrc-website/edit/main/_data/calendar.yml) |
-| Add an item to the SNRC Archive | [Edit archive records](https://github.com/mn579/snrc-website/edit/main/_data/archive.yml) |
-| Update home-page photos | [Edit home-page content](https://github.com/mn579/snrc-website/edit/main/_data/home.yml) and use `assets/images/branding/home` |
-| Update programs or focus areas | [Edit program information](https://github.com/mn579/snrc-website/edit/main/_data/programs.yml) |
-| Update resource links | [Edit resources](https://github.com/mn579/snrc-website/edit/main/_data/resources.yml) |
-| Update contact details or social links | [Edit organization details](https://github.com/mn579/snrc-website/edit/main/_data/site.yml) |
+| Upload a new gallery album | [Open the private photo archive](https://github.com/cornellsnrc/snrc-photo-archive/releases) |
+| Read the gallery upload directions | [Open the archive instructions](https://github.com/cornellsnrc/snrc-photo-archive#upload-an-album) |
+| Upload an officer headshot | [Upload officer photos](https://github.com/cornellsnrc/cornellsnrc.github.io/upload/main/assets/images/officers) |
+| Add or update an officer | [Edit officer profiles](https://github.com/cornellsnrc/cornellsnrc.github.io/edit/main/_data/officers.yml) |
+| Add or update a calendar event | [Edit the event calendar](https://github.com/cornellsnrc/cornellsnrc.github.io/edit/main/_data/calendar.yml) |
+| Add an item to the SNRC Archive | [Edit archive records](https://github.com/cornellsnrc/cornellsnrc.github.io/edit/main/_data/archive.yml) |
+| Update home-page photos | [Edit home-page content](https://github.com/cornellsnrc/cornellsnrc.github.io/edit/main/_data/home.yml) and use `assets/images/branding/home` |
+| Update programs or focus areas | [Edit program information](https://github.com/cornellsnrc/cornellsnrc.github.io/edit/main/_data/programs.yml) |
+| Update resource links | [Edit resources](https://github.com/cornellsnrc/cornellsnrc.github.io/edit/main/_data/resources.yml) |
+| Update contact details or social links | [Edit organization details](https://github.com/cornellsnrc/cornellsnrc.github.io/edit/main/_data/site.yml) |
 | Read complete instructions | [Open the website editing guide](HOW_TO_UPDATE_THE_WEBSITE.md) |
-| Check whether an update published successfully | [View website Actions](https://github.com/mn579/snrc-website/actions) |
-| View the published website | [Open the SNRC website](https://mn579.github.io/snrc-website/) |
+| Check whether an update published successfully | [View website Actions](https://github.com/cornellsnrc/cornellsnrc.github.io/actions) |
+| View the published website | [Open the SNRC website](https://cornellsnrc.github.io/) |
 
 ## The only GitHub button you need to know
 
@@ -35,7 +35,7 @@ Every update is checked before publication. If **Validate editor content** shows
 Gallery originals belong in the private photo archive—not directly in this website repository. The website receives only the optimized display copies created by the archive automation.
 
 1. Put one event's original photographs in a folder and create a ZIP of that folder.
-2. Open the private archive's [Releases page](https://github.com/mn579/snrc-photo-archive/releases).
+2. Open the private archive's [Releases page](https://github.com/cornellsnrc/snrc-photo-archive/releases).
 3. Select **Draft a new release**.
 4. Create a tag such as `2027-04-22--earth-day-cleanup`.
 5. Enter the normal album title, attach exactly one ZIP, and select **Publish release**.
@@ -67,6 +67,6 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Open `http://localhost:4000/snrc-website/`. Every push to `main` runs `.github/workflows/deploy-pages.yml` and deploys the generated site to GitHub Pages.
+Open `http://localhost:4000/`. Every push to `main` runs `.github/workflows/deploy-pages.yml` and deploys the generated site to GitHub Pages.
 
 </details>
