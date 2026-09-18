@@ -57,9 +57,12 @@ def optimize(path: Path, max_dimension: int) -> tuple[bool, str]:
     temporary = path.with_name(f".{path.name}.optimizing")
 
     try:
-        with Image.open(path) as source:
+         with Image.open(path) as source:
             if getattr(source, "is_animated", False):
-                return False, "animated image skipped"
+                if path.suffix.lower() in {".jpg", ".jpeg"}:
+                    source.seek(0)
+                else:
+                    return False, "animated image skipped"
 
             image = ImageOps.exif_transpose(source)
             original_dimensions = image.size
