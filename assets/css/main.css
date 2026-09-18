@@ -160,7 +160,7 @@ p { text-wrap: pretty; }
   align-items: center;
   background:
     linear-gradient(90deg, rgba(6, 29, 20, 0.95) 0%, rgba(9, 41, 29, 0.76) 48%, rgba(9, 39, 28, 0.25) 100%),
-    url('../images/brand/forest-banner.png') center / cover no-repeat;
+    url('../images/branding/forest-banner.png') center / cover no-repeat;
   color: var(--white);
 }
 .home-hero::after {
@@ -468,7 +468,7 @@ button.calendar-day.has-events:hover { transform: scale(1.13); }
 .archive-callout .button { margin-top: 12px; }
 
 /* Footer */
-.site-footer { background: linear-gradient(rgba(8, 34, 24, 0.89), rgba(5, 27, 19, 0.96)), url('../images/brand/forest-banner.png') center / cover no-repeat; color: rgba(255, 255, 255, 0.75); }
+.site-footer { background: linear-gradient(rgba(8, 34, 24, 0.89), rgba(5, 27, 19, 0.96)), url('../images/branding/forest-banner.png') center / cover no-repeat; color: rgba(255, 255, 255, 0.75); }
 .footer-cta { min-height: 150px; padding-block: 28px; display: grid; grid-template-columns: 1fr auto; gap: 38px; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.17); }
 .footer-cta h2 { margin-bottom: 5px; color: var(--white); font-size: clamp(1.8rem, 2.6vw, 2.65rem); }
 .footer-cta p:last-child { margin-bottom: 0; }

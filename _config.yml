@@ -26,4 +26,4 @@ defaults:
       path: ""
     values:
       layout: default
-      image: /assets/images/brand/forest-banner.png
+      image: /assets/images/branding/forest-banner.png

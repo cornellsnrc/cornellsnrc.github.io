@@ -57,7 +57,7 @@ description: Cornell SNRC creates tangible environmental impact through conserva
     <div class="feature-collage reveal" aria-label="Scenes from SNRC projects and events">
       {% for photo in site.data.home.join_photos %}
         <figure class="collage-card collage-card-{{ photo.position }}">
-          {% assign home_photo_path = '/assets/images/gallery/' | append: photo.image %}
+          {% assign home_photo_path = '/assets/images/branding/home/' | append: photo.image %}
           <img src="{{ home_photo_path | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
           <figcaption>{{ photo.caption }}</figcaption>
         </figure>

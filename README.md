@@ -14,7 +14,7 @@ You can complete every routine website update in your browser. You do **not** ne
 | Add or update an officer | [Edit officer profiles](https://github.com/mn579/snrc-website/edit/main/_data/officers.yml) |
 | Add or update a calendar event | [Edit the event calendar](https://github.com/mn579/snrc-website/edit/main/_data/calendar.yml) |
 | Add an item to the SNRC Archive | [Edit archive records](https://github.com/mn579/snrc-website/edit/main/_data/archive.yml) |
-| Update home-page photos | [Edit home-page content](https://github.com/mn579/snrc-website/edit/main/_data/home.yml) |
+| Update home-page photos | [Edit home-page content](https://github.com/mn579/snrc-website/edit/main/_data/home.yml) and use `assets/images/branding/home` |
 | Update programs or focus areas | [Edit program information](https://github.com/mn579/snrc-website/edit/main/_data/programs.yml) |
 | Update resource links | [Edit resources](https://github.com/mn579/snrc-website/edit/main/_data/resources.yml) |
 | Update contact details or social links | [Edit organization details](https://github.com/mn579/snrc-website/edit/main/_data/site.yml) |
@@ -30,7 +30,7 @@ Use a short description such as `Add October cleanup event` or `Upload picnic ph
 
 ## Quick photo instructions
 
-Gallery originals now belong in the private photo archive—not directly in this website repository.
+Gallery originals belong in the private photo archive—not directly in this website repository. The website receives only the optimized display copies created by the archive automation.
 
 1. Put one event's original photographs in a folder and create a ZIP of that folder.
 2. Open the private archive's [Releases page](https://github.com/mn579/snrc-photo-archive/releases).
@@ -44,7 +44,7 @@ For field-by-field examples and troubleshooting, use the [complete editing guide
 
 ## Please do not edit these folders
 
-Routine editors should stay within `_data` and `assets/images/officers`. Gallery files are managed by the private archive automation. The following locations control the website's design and behavior:
+Routine editors should stay within `_data`, `assets/images/officers`, and—only when changing permanent page artwork—`assets/images/branding`. Gallery files are managed exclusively by the private archive automation. The following locations control the website's design and behavior:
 
 - `_includes`
 - `_layouts`

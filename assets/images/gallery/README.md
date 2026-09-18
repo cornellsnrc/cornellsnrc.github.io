@@ -1,9 +1,7 @@
-# Gallery photos
+# Generated Gallery display files
 
-Create one folder per event, then upload photos into it. Example:
+Do not upload photographs to this folder manually.
 
-`assets/images/gallery/2026-fall-picnic/picnic-01.jpg`
+Original albums are uploaded as private ZIP assets through `mn579/snrc-photo-archive` Releases. The archive workflow preserves those originals privately, creates optimized display copies, places those copies here, adds the matching `_data/albums.yml` record, and deploys the website.
 
-After creating the folder, add its `name`, `year`, and matching folder `path` to `_data/albums.yml`. Every JPG, JPEG, PNG, WebP, or AVIF inside that folder then appears automatically in the album. Each filename becomes the image description, so use descriptive names such as `botanic-gardens-group-photo.jpg`.
-
-Do not upload a photo that should remain private or that the organization does not have permission to publish.
+Files in this folder are public website derivatives—not the permanent original archive. Permanent non-gallery artwork belongs in `assets/images/branding/`, officer portraits belong in `assets/images/officers/`, and all original gallery photographs belong in the private archive.
