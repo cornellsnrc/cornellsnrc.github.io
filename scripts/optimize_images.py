@@ -95,7 +95,10 @@ def main() -> None:
 
             relative = path.relative_to(ROOT).as_posix()
             current_digest = digest(path)
-            if old_cache.get(relative) == current_digest:
+            if (
+                old_cache.get(relative) == current_digest
+                and path.stat().st_size <= 2 * 1024 * 1024
+            ):
                 new_cache[relative] = current_digest
                 continue
 
