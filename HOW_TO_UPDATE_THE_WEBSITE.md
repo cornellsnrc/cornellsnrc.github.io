@@ -36,9 +36,9 @@ You normally do **not** need to edit anything in `_layouts`, `_includes`, `asset
 
 ## Add or update an officer
 
-1. Open [`assets/images/officers/`](https://github.com/mn579/snrc-website/tree/main/assets/images/officers).
+1. Open [`assets/images/officers/`](https://github.com/cornellsnrc/snrc-website/tree/main/assets/images/officers).
 2. Select **Add file → Upload files**, drag in the portrait, and commit it.
-3. Open [`_data/officers.yml`](https://github.com/mn579/snrc-website/edit/main/_data/officers.yml).
+3. Open [`_data/officers.yml`](https://github.com/cornellsnrc/snrc-website/edit/main/_data/officers.yml).
 4. Copy an existing officer block.
 5. Replace `name`, `role`, `image`, `bio`, and `email`.
 6. Commit the change.
@@ -75,11 +75,11 @@ Choose a category key already listed at the top of `_data/calendar.yml`: `fieldw
 
 ## Add gallery photos
 
-Gallery albums are uploaded through the private [`snrc-photo-archive`](https://github.com/mn579/snrc-photo-archive), not this website repository.
+Gallery albums are uploaded through the private [`snrc-photo-archive`](https://github.com/cornellsnrc/snrc-photo-archive), not this website repository.
 
 1. Put one event's original photographs into a folder on your computer.
 2. Create a ZIP of that folder. On a Mac, Control-click it and select **Compress**. On Windows, right-click it and select **Compress to ZIP file**.
-3. Open the archive's [Releases page](https://github.com/mn579/snrc-photo-archive/releases) and select **Draft a new release**.
+3. Open the archive's [Releases page](https://github.com/cornellsnrc/snrc-photo-archive/releases) and select **Draft a new release**.
 4. Create a tag using the event date, two hyphens, and a short lowercase name: `2027-04-22--earth-day-cleanup`.
 5. Enter the album's normal name under **Release title**.
 6. Attach exactly one ZIP file.
