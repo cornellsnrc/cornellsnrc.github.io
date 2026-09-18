@@ -14,6 +14,8 @@ Return to the [editor dashboard](README.md) whenever you need a direct link to a
 
 GitHub keeps the earlier version whenever you commit, so an accidental edit can be reversed. Do not delete unfamiliar files while trying to fix a mistake.
 
+Before publishing, the website checks YAML formatting, required fields, dates, categories, links, duplicate records, image references, album folders, and image-storage rules. A failed validation leaves the existing website online and identifies the exact record that needs attention.
+
 ## The files most people should edit
 
 | What you want to change | File or folder |
@@ -139,9 +141,9 @@ The text between `---` lines at the top is page metadata used for page titles, d
 
 1. Open the repository's **Actions** tab.
 2. Select the latest **Deploy SNRC website** run.
-3. Open the failed step to read the error.
+3. If **Validate editor content** failed, open it and read the message naming the file and record to correct.
 4. Check the most recently edited YAML file first. Spacing matters in YAML; each nested line should use spaces, not tabs.
-5. Fix the file and commit again.
+5. Fix the named problem and commit again. Validation will rerun automatically.
 
 If the separate **Optimize website images** Action fails, the website can still publish. The most common cause is a photo format that the optimizer cannot read. Remove that file or convert it to JPG, PNG, or WebP, then upload it again.
 
